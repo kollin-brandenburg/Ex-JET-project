@@ -5,7 +5,8 @@
 /*
  * Your incidents ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojlabel',
+           'ojs/ojinputtext'],
  function(oj, ko, $) {
    // $(function(){
    //   ko.applyBindings(null, document.getElementById('form-container'));
