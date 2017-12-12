@@ -7,4 +7,15 @@
   <div>
       To change the content of this section, you will make edits to the about.html file located in the /js/views folder.
   </div>
+  <input data-bind="value: name"></input>
+  <input data-bind="textInput: name"></input>
+
+  <h2><span data-bind="text: name"></span></h2>
+  <div data-bind="ojComponent: {component: 'ojChart', type: 'bar', series: datasource}"></div>
+  <div data-bind="ojComponent: {component: 'ojChart', type: 'pie', series: datasource}"></div>
+  
+  <oj-chart type:"pie" series="[[datasource]]"></oj-chart>
+  <oj-chart type:"bar" series="[[datasource]]"></oj-chart>
+
+
 </div>

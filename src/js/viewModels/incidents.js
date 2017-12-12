@@ -5,14 +5,24 @@
 /*
  * Your incidents ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojlabel',
-           'ojs/ojinputtext'],
+define([
+  'ojs/ojcore',
+  'knockout',
+  'jquery',
+  'ojs/ojknockout',
+  'ojs/ojlabel',
+  'ojs/ojinputtext',
+  'ojs/ojdatetimepicker',
+  'ojs/ojselectcombobox',
+  'ojs/ojtimezonedata',],
  function(oj, ko, $) {
    // $(function(){
    //   ko.applyBindings(null, document.getElementById('form-container'));
    // });
+
     function IncidentsViewModel() {
       var self = this;
+
       // Below are a subset of the ViewModel methods invoked by the ojModule binding
       // Please reference the ojModule jsDoc for additional available methods.
 
@@ -69,6 +79,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojlabel',
         // Implement if needed
       };
     }
+    
 
     /*
      * Returns a constructor for the ViewModel so that the ViewModel is constructed
