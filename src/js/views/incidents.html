@@ -2,63 +2,98 @@
  Copyright (c) 2014, 2017, Oracle and/or its affiliates.
  The Universal Permissive License (UPL), Version 1.0
  -->
- <div id="sampleDemo" style="" class="demo-padding demo-container">
-       <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
-         <p>Demo width in <span class="demo-screen-range"></span> screen range.</p>
-         <div   class="demo-grid-sizes demo-flex-display">
-           <div class="oj-flex oj-flex-items-pad">
-             <div class="oj-sm-4 oj-md-3 oj-lg-2 oj-xl-2 oj-flex-item">
-               <oj-label id="agreeId" show-required>License Agreement </oj-label>
+<div id="sampleDemo" style="" class="demo-padding demo-container">
+  <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+    <p>Demo width in <span class="demo-screen-range"></span> screen range.</p>
+    <div class="demo-grid-sizes demo-flex-display">
+      <div class="oj-flex oj-flex-items-pad">
 
-             </div>
-             <div class="oj-sm-4 oj-md-6 oj-lg-8 oj-xl-8 oj-flex-item">
-               <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
-        <div id="form-container" class="oj-form-layout">
-          <div class="oj-form">
-            <div class="oj-flex">
-              <div class="oj-flex-item">
-                <oj-label show-required for="input">row 1</oj-label>
-                <oj-input-text id="input" required value="text"></oj-input-text>
-              </div>
-            </div>
-            <div class="oj-flex">
-              <div class="oj-flex-item">
-                <oj-label show-required for="input">Requestor Name</oj-label>
-                <oj-input-text id="input" required value=""></oj-input-text>
-              </div>
-            </div>
-            <div class="oj-flex">
-              <div class="oj-flex-item">
-                <oj-label show-required for="input">Business Unit</oj-label>
-                <oj-input-text id="input" required value=""></oj-input-text>
-              </div>
-            </div>
-            <div class="oj-flex">
-              <div class="oj-flex-item">
-                <oj-label label-id="inputgrouplabel">row 2</oj-label>
-                <div class="oj-form-control-group" aria-labelledby="inputgrouplabel" role="group">
-                  <oj-input-text aria-label="this is the input1 label text" value="text"></oj-input-text>
-                  <oj-input-text aria-label="this is the input2 label text" value="text"></oj-input-text>
-                  <oj-input-text aria-label="this is the input3 label text" value="text"></oj-input-text>
+        <div class="oj-sm-4 oj-md-3 oj-lg-2 oj-xl-2 oj-flex-item">
+          <oj-label id="agreeId" show-required>License Agreement </oj-label>
+        </div>
+
+        <div class="oj-sm-4 oj-md-6 oj-lg-10 oj-xl-8 oj-flex-item">
+          <div id="form-container" class="oj-form-layout">
+            <div class="oj-form">
+
+              <div class="oj-flex">
+                <div class="oj-sm-6 oj-flex-item">
+                  <oj-label show-required for="input">AEF Number</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+                <div class="oj-sm-6 oj-flex-item">
+                  <oj-label show-required for="input">AEF Status</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
                 </div>
               </div>
-            </div>
-            <div class="oj-flex">
-              <div class="oj-flex-item">
-                <oj-label for="input2">row 3</oj-label>
-                <oj-input-text id="input2" value="text"></oj-input-text>
+
+              <div class="oj-flex">
+                <div class="oj-sm-6 oj-flex-item">
+                  <oj-label show-required for="input">Requestor Name</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+                <div class="oj-sm-6 oj-flex-item">
+                  <oj-label show-required for="input">Requestor Email</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
               </div>
+
+              <div class="oj-flex">
+                <div class="oj-flex-item">
+                  <oj-label show-required for="input">Business Unit</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+                <div class="oj-sm-6 oj-flex-item">
+                  <oj-label show-required for="input">Submission Date</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+              </div>
+
+
+              <div class="oj-flex">
+                <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                  <oj-label show-required for="input">Initiative Name</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+              </div>
+
+              <div class="oj-flex">
+                <div class="oj-flex-item">
+                  <oj-label show-required for="input">Description</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+              </div>
+
+              <div class="oj-flex">
+                <div class="oj-flex-item">
+                  <oj-label show-required for="input">Planned Start</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+                <div class="oj-sm-6 oj-flex-item">
+                  <oj-label show-required for="input">Planned Implementation</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+              </div>
+
+              <div class="oj-flex">
+                <div class="oj-flex-item">
+                  <oj-label show-required for="input">PPM ID/EDM ID</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+                <div class="oj-sm-6 oj-flex-item">
+                  <oj-label show-required for="input">APM ID</oj-label>
+                  <oj-input-text id="input" required value=""></oj-input-text>
+                </div>
+              </div>
+
+
             </div>
           </div>
         </div>
-
-
       </div>
-             </div>
-             <div class="oj-sm-4 oj-md-3 oj-lg-2 oj-xl-2 oj-flex-item">1</div>
-           </div>
-         </div>
+    </div>
+  </div>
 
 
-       </div>
-     </div>
+</div>
+</div>
