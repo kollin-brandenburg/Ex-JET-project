@@ -21,20 +21,21 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
        self.router = oj.Router.rootInstance;
        self.router.configure({
          'dashboard': {label: 'Dashboard', isDefault: true},
-         'incidents': {label: 'Incidents'},
+         'incidents': {label: 'Search'},
          'customers': {label: 'Customers'},
          'about': {label: 'About'}
        });
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
 
       // Navigation setup
+      // This is where you edit the options in the nav bar.
       var navData = [
       {name: 'Dashboard', id: 'dashboard',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
-      {name: 'Incidents', id: 'incidents',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
-      {name: 'Customers', id: 'customers',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-home-icon-24'},
+      {name: 'Search', id: 'incidents',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chat-icon-24'},
+      {name: 'Create', id: 'customers',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-copy-icon-24'},
       {name: 'About', id: 'about',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'}
       ];
