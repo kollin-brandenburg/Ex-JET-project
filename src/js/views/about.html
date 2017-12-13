@@ -13,9 +13,10 @@
   <h2><span data-bind="text: name"></span></h2>
   <div data-bind="ojComponent: {component: 'ojChart', type: 'bar', series: datasource}"></div>
   <div data-bind="ojComponent: {component: 'ojChart', type: 'pie', series: datasource}"></div>
-  
+
   <oj-chart type:"pie" series="[[datasource]]"></oj-chart>
   <oj-chart type:"bar" series="[[datasource]]"></oj-chart>
+  <oj-chart type:"bar" series="[[transportation]]"></oj-chart>
 
 
 </div>

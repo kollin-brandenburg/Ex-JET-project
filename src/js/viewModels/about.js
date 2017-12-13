@@ -5,8 +5,8 @@
 /*
  * Your about ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojChart'],
- function(oj, ko, $) {
+define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'ojs/ojChart'],
+ function(oj, ko, $, file) {
 
     function AboutViewModel() {
       var self = this;
@@ -17,8 +17,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojChart'],
         {name: "Buses", items: [22]},
         {name: "Trains", items: [22]}];
 
+      var filedata = JSON.parse(file)
+
       self.name = ko.observable("Kollin")
       self.datasource = ko.observableArray(data)
+      self.transportation = ko.observableArray(filedata)
+
 
       // Below are a subset of the ViewModel methods invoked by the ojModule binding
       // Please reference the ojModule jsDoc for additional available methods.
