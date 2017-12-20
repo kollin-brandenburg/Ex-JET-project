@@ -4,109 +4,188 @@
  -->
 <div id="sampleDemo" style="" class="demo-padding demo-container">
   <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
-    <p>Rename this page**** <span class="demo-screen-range"></span> screen range.</p>
-    <div class="demo-grid-sizes demo-flex-display">
-      <div class="oj-flex oj-flex-items-pad">
+    <div id="tabbardemo" >
 
-        <div class="oj-sm-4 oj-md-3 oj-lg-2 oj-xl-2 oj-flex-item">
-          <oj-label id="agreeId" show-required>License Agreement </oj-label>
-        </div>
+              <!-- <oj-radioset id="radiosetBasicDemoId"
+                           labelled-by="lid"
+                           value="{{currentEdge}}"
+                           on-value-changed="[[valueChangedHandler]]"
+                           class="oj-choice-direction-row">
+                <oj-option id="topopt" value="top">top</oj-option>
+                <oj-option id="bottomopt" value="bottom">bottom</oj-option>
+                <oj-option id="startopt" value="start">start</oj-option>
+                <oj-option id="endopt" value="end">end</oj-option>
+              </oj-radioset> -->
+              <div id="demo-container" class="oj-flex oj-flex-items-pad demo-edge-top">
+                <oj-tab-bar id="hnavlist"
+                            class="oj-sm-12 oj-md-12 oj-lg-12 oj-flex-item"
+                            edge="bottom"
+                            selection="{{selectedItem}}">
+                            <ul>
 
-        <div class="oj-sm-4 oj-md-6 oj-lg-10 oj-xl-8 oj-flex-item">
-          <div id="form-container" class="oj-form-layout">
-            <div class="oj-form">
+                              <li id="aefrequest" >
+                                <a href="#" aria-controls="aefrequest-tab-panel" id="aefrequest-tab" >
+                                  AEF Request
+                                </a>
+                              </li>
+                              <li id="architecture" >
+                                <a href="#" aria-controls="architecture-tab-panel" id="architecture-tab" >
+                                  Architecture
+                                </a>
+                              </li>
+                              <li id="security" >
+                                <a href="#" aria-controls="security-tab-panel" id="security-tab" >
+                                  Security
+                                </a>
+                              </li>
+                              <li id="riskandpolicy" >
+                                <a href="#" aria-controls="riskandpolicy-tab-panel" id="riskandpolicy-tab" >
+                                  Risk and Policy
+                                </a>
+                              </li>
+                              <li id="candi" >
+                                <a href="#" aria-controls="candi-tab-panel" id="candi-tab" >
+                                  C & I
+                                </a>
+                              </li>
+                              <li id="externaldata" >
+                                <a href="#" aria-controls="externaldata-tab-panel" id="externaldata-tab" >
+                                  External Data
+                                </a>
+                              </li>
+                              <li id="csc" >
+                                <a href="#" aria-controls="csc-tab-panel" id="csc-tab" >
+                                  CSC
+                                </a>
+                              </li>
+                              <li id="supply" >
+                                <a href="#" aria-controls="supply-tab-panel" id="supply-tab" >
+                                  Supply
+                                </a>
+                              </li>
+                              <li id="legal" >
+                                <a href="#" aria-controls="legal-tab-panel" id="legal-tab" >
+                                  Legal
+                                </a>
+                              </li>
+                              <li id="finance" >
+                                <a href="#" aria-controls="finance-tab-panel" id="finance-tab" >
+                                  Finance
+                                </a>
+                              </li>
+                              <li id="operations" >
+                                <a href="#" aria-controls="operations-tab-panel" id="operations-tab" >
+                                  Operations
+                                </a>
+                              </li>
+                              <li id="irc" >
+                                <a href="#" aria-controls="irc-tab-panel" id="irc-tab" >
+                                  IRC
+                                </a>
+                              </li>
+                              <li id="oracle" >
+                                <a href="#" aria-controls="oracle-tab-panel" id="oracle-tab" >
+                                  Oracle
+                                </a>
+                              </li>
+                            </ul>
+                </oj-tab-bar>
 
-              <div class="oj-flex">
-                <div class="oj-sm-6 oj-flex-item">
-                  <oj-label show-required for="input">AEF Number</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
-                </div>
-                <div class="oj-sm-6 oj-flex-item">
-                  <oj-label show-required for="input">AEF Status</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
-                </div>
-              </div>
+                <oj-switcher value="[[selectedItem]]">
+                  <div slot="home"
+                       id="home-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="home-tab">
+                    <div class="demo-tab-content">
+                      <h2>Home page content area</h2>
+                      <h2> This is another test</h2>
+                    </div>
+                  </div>
+                  <div slot="blogs"
+                       id="blogs-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="blogs-tab">
+                    <div class="demo-tab-content">
+                      <h2>Blogs content area</h2>
+                      <h2> This is another test</h2>
+                      <h2> This is another test</h2>
+                    </div>
+                  </div>
+                  <div slot="aefrequest"
+                       id="aefrequest-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="aefrequest-tab">
+                    <div class="demo-tab-content">
+                      <h2>AEF Request</h2>
+                    </div>
+                  </div>
 
-              <div class="oj-flex">
-                <div class="oj-sm-6 oj-flex-item">
-                  <oj-label show-required for="input">Requestor Name</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
-                </div>
-                <div class="oj-sm-6 oj-flex-item">
-                  <oj-label show-required for="input">Requestor Email</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
-                </div>
-              </div>
+                  <div slot="architecture"
+                       id="about-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="about-tab">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
 
-              <div class="oj-flex">
-                <div class="oj-flex-item">
-                  <oj-label show-required for="input">Business Unit</oj-label>
-                  <div id="containerDiv">
-                            <oj-select-one id="basicSelect" value="{{val}}" style="max-width:20em">
-                              <oj-option value="IE">Internet Explorer</oj-option>
-                              <oj-option value="FF">Firefox</oj-option>
-                              <oj-option value="CH">Chrome</oj-option>
-                              <oj-option value="OP">Opera</oj-option>
-                              <oj-option value="SA">Safari</oj-option>
-                            </oj-select-one>
+                          <div class="oj-sm-4 oj-md-3 oj-lg-2 oj-xl-2 oj-flex-item">
+                          </div>
 
-                            <div>
-                              <br/>
-                              <oj-label for="curr-value">Current selected value is  </oj-label>
-                              <span id="curr-value" data-bind="text: val"></span>
+                          <div class="oj-sm-4 oj-md-6 oj-lg-10 oj-xl-8 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">AEF Number</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">AEF Status</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+                                <div class="oj-flex">
+                                  <div class="oj-flex-item">
+                                    <oj-label for="input">Description</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-flex-item">
+                                    <oj-label show-required for="input">Planned Start</oj-label>
+                                    <oj-input-date id="date" value='{{plannedStart}}'>
+                                    </oj-input-date>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label show-required for="input">Planned Implementation</oj-label>
+                                    <oj-input-date id="date" value='{{plannedImplementation}}'>
+                                    </oj-input-date>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                          </div>                </div>
-                <div class="oj-sm-6 oj-flex-item">
-                  <oj-label show-required for="input">Submission Date</oj-label>
-                  <oj-input-date id="date" value='{{submissionDate}}'>
-                  </oj-input-date>
-                </div>
-              </div>
+                          </div>
+                        </div>
+                      </div>
 
 
-              <div class="oj-flex">
-                <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
-                  <oj-label show-required for="input">Initiative Name</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
-                </div>
-              </div>
+                    </div>
+                  </div>
 
-              <div class="oj-flex">
-                <div class="oj-flex-item">
-                  <oj-label show-required for="input">Description</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
-                </div>
-              </div>
+                  <div slot="contact"
+                       id="contact-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="contact-tab">
+                    <div class="demo-tab-content">
+                      <h2>Contact page content area</h2>
+                    </div>
+                  </div>
 
-              <div class="oj-flex">
-                <div class="oj-flex-item">
-                  <oj-label show-required for="input">Planned Start</oj-label>
-                  <oj-input-date id="date" value='{{plannedStart}}'>
-                  </oj-input-date>
-                </div>
-                <div class="oj-sm-6 oj-flex-item">
-                  <oj-label show-required for="input">Planned Implementation</oj-label>
-                  <oj-input-date id="date" value='{{plannedImplementation}}'>
-                  </oj-input-date>
-                </div>
-              </div>
-
-
-              <div class="oj-flex">
-                <div class="oj-flex-item">
-                  <oj-label show-required for="input">PPM ID/EDM ID</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
-                </div>
-                <div class="oj-sm-6 oj-flex-item">
-                  <oj-label show-required for="input">APM ID</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
-                </div>
+                </oj-switcher>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
 

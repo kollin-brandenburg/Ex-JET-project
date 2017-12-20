@@ -1,32 +1,33 @@
+
 define([
   'ojs/ojcore',
   'knockout',
   'jquery',
   'ojs/ojknockout',
-  'ojs/ojnavigationlist',
-  'ojs/ojswitcher',
-  'ojs/ojradioset',
-  'ojs/ojlabel',
   'ojs/ojdatetimepicker',
   'ojs/ojselectcombobox',
-  'ojs/ojtimezonedata'
+  'ojs/ojtimezonedata',
+  'ojs/ojlabel'
 ], function(oj, ko, $) {
 
   $(function() {
-    ko.applyBindings(new IncidentsViewModel(), document.getElementById('tabbardemo'));
+    ko.applyBindings(new AEFCreateViewModel(), document.getElementById('div1'));
+    ko.applyBindings(new ValueModel(), document.getElementById('containerDiv'));
   });
-  function IncidentsViewModel() {
+  function AEFCreateViewModel() {
     var self = this;
-    this.selectedItem = ko.observable("aefrequest");
-    this.currentEdge = ko.observable("bottom");
-    // this.valueChangedHandler = function(event) {
-    //   var value = event.detail.value,
-    //     previousValue = event.detail.previousValue;
-    //   $('#demo-container').addClass('demo-edge-' + value).removeClass('demo-edge-' + previousValue);
-    // }
-    for (var i = 0; i < 1; i++) {
-      $('.demo-tab-content').append('<p> Hello ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pharetra, risus ac interdum sollicitudin, sem erat ultrices ipsum, eget vehicula nibh augue sollicitudin ligula. Sed ullamcorper cursus feugiat. Mauris tristique aliquam dictum. Nulla facilisi. Nulla ut sapien sapien. Phasellus tristique arcu id ipsum mattis id aliquam risus sollicitudin.</p>');
-    }
+    self.name = ko.observable("Kollin")
+
+    this.val = ko.observable("CI");
+    //Getting the current date
+
+    this.value = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
+    this.plannedStart = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
+    this.plannedImplementation = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
+    this.submissionDate = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
+
+
+
 
     // Below are a subset of the ViewModel methods invoked by the ojModule binding
     // Please reference the ojModule jsDoc for additional available methods.
@@ -89,5 +90,5 @@ define([
      * each time the view is displayed.  Return an instance of the ViewModel if
      * only one instance of the ViewModel is needed.
      */
-  return new IncidentsViewModel();
+  return new AEFCreateViewModel();
 });

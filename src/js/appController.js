@@ -23,7 +23,8 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
          'dashboard': {label: 'Dashboard', isDefault: true},
          'incidents': {label: 'Search'},
          'customers': {label: 'Customers'},
-         'about': {label: 'About'}
+         'about': {label: 'About'},
+         'AEFCreate': {label: 'Create'}
        });
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
 
@@ -32,12 +33,14 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
       var navData = [
       {name: 'Dashboard', id: 'dashboard',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-home-icon-24'},
-      {name: 'Search', id: 'incidents',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chat-icon-24'},
-      {name: 'Create', id: 'customers',
+      {name: 'Search', id: 'customers',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-copy-icon-24'},
+      {name: 'Create', id: 'AEFCreate',
+        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chat-icon-24'},
       {name: 'About', id: 'about',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'}
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
+      {name: 'Create', id: 'incidents',
+        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'}
       ];
       self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
 
