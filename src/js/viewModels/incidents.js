@@ -29,7 +29,7 @@ define([
     //   $('#demo-container').addClass('demo-edge-' + value).removeClass('demo-edge-' + previousValue);
     // }
     for (var i = 0; i < 1; i++) {
-      $('.demo-tab-content').append('<p> Hello ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pharetra, risus ac interdum sollicitudin, sem erat ultrices ipsum, eget vehicula nibh augue sollicitudin ligula. Sed ullamcorper cursus feugiat. Mauris tristique aliquam dictum. Nulla facilisi. Nulla ut sapien sapien. Phasellus tristique arcu id ipsum mattis id aliquam risus sollicitudin.</p>');
+      $('.demo-tab-content').append('<p class="clear"> Hello ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pharetra, risus ac interdum sollicitudin, sem erat ultrices ipsum, eget vehicula nibh augue sollicitudin ligula. Sed ullamcorper cursus feugiat. Mauris tristique aliquam dictum. Nulla facilisi. Nulla ut sapien sapien.</p>');
     }
 
     // Below are a subset of the ViewModel methods invoked by the ojModule binding
