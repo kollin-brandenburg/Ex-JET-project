@@ -12,7 +12,6 @@ define([
 
   $(function() {
     ko.applyBindings(new AEFCreateViewModel(), document.getElementById('div1'));
-    ko.applyBindings(new ValueModel(), document.getElementById('containerDiv'));
   });
   function AEFCreateViewModel() {
     var self = this;

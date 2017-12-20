@@ -19,6 +19,10 @@ define([
     var self = this;
     this.selectedItem = ko.observable("aefrequest");
     this.currentEdge = ko.observable("bottom");
+    this.securityval = ko.observable("CI");
+    this.cissDate = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
+
+
     // this.valueChangedHandler = function(event) {
     //   var value = event.detail.value,
     //     previousValue = event.detail.previousValue;

@@ -127,11 +127,7 @@
                     <div class="demo-tab-content">
                       <div class="demo-grid-sizes demo-flex-display">
                         <div class="oj-flex oj-flex-items-pad">
-
-                          <div class="oj-sm-4 oj-md-3 oj-lg-2 oj-xl-2 oj-flex-item">
-                          </div>
-
-                          <div class="oj-sm-4 oj-md-6 oj-lg-10 oj-xl-8 oj-flex-item">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
                             <div id="form-container" class="oj-form-layout">
                               <div class="oj-form">
 
@@ -146,24 +142,13 @@
                                   </div>
                                 </div>
                                 <div class="oj-flex">
-                                  <div class="oj-flex-item">
+                                  <div class="oj-sm-12 oj-flex-item">
                                     <oj-label for="input">Description</oj-label>
-                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                    <oj-input-text id="input" required value="" style="max-width:90%"></oj-input-text>
                                   </div>
                                 </div>
 
-                                <div class="oj-flex">
-                                  <div class="oj-flex-item">
-                                    <oj-label show-required for="input">Planned Start</oj-label>
-                                    <oj-input-date id="date" value='{{plannedStart}}'>
-                                    </oj-input-date>
-                                  </div>
-                                  <div class="oj-sm-6 oj-flex-item">
-                                    <oj-label show-required for="input">Planned Implementation</oj-label>
-                                    <oj-input-date id="date" value='{{plannedImplementation}}'>
-                                    </oj-input-date>
-                                  </div>
-                                </div>
+
                               </div>
                             </div>
                           </div>
@@ -174,15 +159,173 @@
                     </div>
                   </div>
 
-                  <div slot="contact"
-                       id="contact-tab-panel"
+                  <div slot="security"
+                       id="security-tab-panel"
                        role="tabpanel"
-                       aria-labelledby="contact-tab">
+                       aria-labelledby="security-tab"
+                       style="max-width:100%">
                     <div class="demo-tab-content">
-                      <h2>Contact page content area</h2>
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Business Unit </oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://teamspace.exeloncorp.com/sites/CSADS-Public/SitePages/Home.aspx?RootFolder=%2Fsites%2FCSADS-Public%2FShared%20Documents%2FSecurity%20Baseline%20Documents&FolderCTID=0x012000516C631D4DCD144EB570018C80F8C10A&View=%7b9E786D87-0096-4B3D-A3B5-F041EC9B0">CSDS</a>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Security Architect Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Security Architect Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Are detailed network or system diagrams, dataflow, and/or other architecture documents available?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Has the CISS conducted a security/risk assessment of this application system (or any related component) within the lsat year?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-flex-item">
+                                    <oj-label for="input">If Yes, when?</oj-label>
+                                    <oj-input-date id="date" value='{{cissDate}}'>
+                                    </oj-input-date>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Will this project/iniative result in a change to the data classification level for the data processed/stored?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Will network connectivity(e.g. VPN, point-to-point, MPLS) or data-sharing be required with a third party?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Will new, or additional, security monitoring and/or logging be required for this application/system or to any related component?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Will the project or iniative have new internet exposed websites created?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please list all URL's below:</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <a href="http://teamapps.exeloncorp.com/sites/securityexceptions/SitePages/Home.aspx">Security & Compliance Exceptions</a>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
                 </oj-switcher>
               </div>
             </div>
