@@ -45,7 +45,8 @@
                 </div>
                 <div class="oj-sm-6 oj-flex-item">
                   <oj-label show-required for="input">Submission Date</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
+                  <oj-input-date id="date" value='{{submissionDate}}'>
+                  </oj-input-date>
                 </div>
               </div>
 
@@ -67,13 +68,16 @@
               <div class="oj-flex">
                 <div class="oj-flex-item">
                   <oj-label show-required for="input">Planned Start</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
+                  <oj-input-date id="date" value='{{plannedStart}}'>
+                  </oj-input-date>
                 </div>
                 <div class="oj-sm-6 oj-flex-item">
                   <oj-label show-required for="input">Planned Implementation</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
+                  <oj-input-date id="date" value='{{plannedImplementation}}'>
+                  </oj-input-date>
                 </div>
               </div>
+
 
               <div class="oj-flex">
                 <div class="oj-flex-item">
@@ -86,20 +90,21 @@
                 </div>
               </div>
 
+              <span data-bind="text: name"></span>
 
 
 
 
-              <div id="div1">
+            <div id="div1">
 
-          <oj-label for="date">InputDate</oj-label>
-          <oj-input-date id="date" value='{{value}}'>
-          </oj-input-date>
+              <oj-label for="date">InputDate</oj-label>
+                <oj-input-date id="date" value='{{value}}'>
+              </oj-input-date>
 
-          <br/><br/>
+              <br/><br/>
 
-          <span class="oj-label">Current component value is: </span>
-          <span data-bind="text: value"></span>
+              <span class="oj-label">Current component value is: </span>
+              <span data-bind="text: value"></span>
 
 
 
