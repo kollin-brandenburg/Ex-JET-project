@@ -41,8 +41,21 @@
               <div class="oj-flex">
                 <div class="oj-flex-item">
                   <oj-label show-required for="input">Business Unit</oj-label>
-                  <oj-input-text id="input" required value=""></oj-input-text>
-                </div>
+                  <div id="containerDiv">
+                            <oj-select-one id="basicSelect" value="{{val}}" style="max-width:20em">
+                              <oj-option value="IE">Internet Explorer</oj-option>
+                              <oj-option value="FF">Firefox</oj-option>
+                              <oj-option value="CH">Chrome</oj-option>
+                              <oj-option value="OP">Opera</oj-option>
+                              <oj-option value="SA">Safari</oj-option>
+                            </oj-select-one>
+
+                            <div>
+                              <br/>
+                              <oj-label for="curr-value">Current selected value is  </oj-label>
+                              <span id="curr-value" data-bind="text: val"></span>
+                            </div>
+                          </div>                </div>
                 <div class="oj-sm-6 oj-flex-item">
                   <oj-label show-required for="input">Submission Date</oj-label>
                   <oj-input-date id="date" value='{{submissionDate}}'>
@@ -89,28 +102,6 @@
                   <oj-input-text id="input" required value=""></oj-input-text>
                 </div>
               </div>
-
-              <span data-bind="text: name"></span>
-
-
-
-
-            <div id="div1">
-
-              <oj-label for="date">InputDate</oj-label>
-                <oj-input-date id="date" value='{{value}}'>
-              </oj-input-date>
-
-              <br/><br/>
-
-              <span class="oj-label">Current component value is: </span>
-              <span data-bind="text: value"></span>
-
-
-
-        </div>
-
-
             </div>
           </div>
         </div>

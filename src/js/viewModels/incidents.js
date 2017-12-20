@@ -1,10 +1,4 @@
-/**
- * Copyright (c) 2014, 2017, Oracle and/or its affiliates.
- * The Universal Permissive License (UPL), Version 1.0
- */
-/*
- * Your incidents ViewModel code goes here
- */
+
 define([
   'ojs/ojcore',
   'knockout',
@@ -18,17 +12,19 @@ define([
 
   $(function() {
     ko.applyBindings(new IncidentsViewModel(), document.getElementById('div1'));
+    // ko.applyBindings(new ValueModel(), document.getElementById('containerDiv'));
   });
   function IncidentsViewModel() {
     var self = this;
     self.name = ko.observable("Kollin")
     //Getting the current date
 
+    this.val = ko.observable("CH");
 
-    this.value = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date(2017, 1, 1)));
-    this.plannedStart = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date(2017, 1, 1)));
-    this.plannedImplementation = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date(2017, 1, 1)));
-    this.submissionDate = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date(2017, 1, 1)));
+    this.value = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
+    this.plannedStart = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
+    this.plannedImplementation = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
+    this.submissionDate = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
 
 
 
