@@ -6,6 +6,8 @@ define([
   'ojs/ojnavigationlist',
   'ojs/ojswitcher',
   'ojs/ojradioset',
+  'ojs/ojbutton',
+  'ojs/ojcheckboxset',
   'ojs/ojlabel',
   'ojs/ojdatetimepicker',
   'ojs/ojselectcombobox',
