@@ -644,6 +644,64 @@
                     </div>
                   </div>
 
+                  <div slot="csc"
+                       id="csc-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="csc-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">CSC Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">CSC Status</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+                                
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">CSC Final Review Completed On</oj-label>
+                                    <oj-input-date id="date" value='{{cissDate}}'>
+                                    </oj-input-date>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">CSC Final Review Completed On</oj-label>
+                                    <oj-input-date id="date" value='{{cissDate}}'>
+                                    </oj-input-date>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
 
                 </oj-switcher>
               </div>
