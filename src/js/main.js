@@ -47,6 +47,12 @@ requirejs.config({
  * by the modules themselves), we are listing them explicitly to get the references to the 'oj' and 'ko'
  * objects in the callback
  */
+ // require (['ojs/ojcore', 'ojs/ojmodule', 'pcs/pcs.applist'],
+ //                               function (oj,$) {
+ //                                   oj.ModuleBinding.defaults.modelPath = './';
+ //                                   oj.ModuleBinding.defaults.viewPath = 'text!./';
+ //                               }
+ //                           );
 require([
   'ojs/ojcore',
   'knockout',
@@ -60,7 +66,9 @@ require([
   'ojs/ojtoolbar',
   'ojs/ojcheckboxset',
   'ojs/ojlabel'
-], function(oj, ko, app) { // this callback gets executed when all required modules are loaded
+], function(oj, ko, app, $) { // this callback gets executed when all required modules are loaded
+  // oj.ModuleBinding.defaults.modelPath = './';
+  // oj.ModuleBinding.defaults.viewPath = 'text!./';
   $(function() {
     function init() {
       oj.Router.sync().then(function() {
