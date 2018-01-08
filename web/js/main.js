@@ -28,14 +28,14 @@ requirejs.config({
     'ojtranslations': 'libs/oj/v4.1.0/resources',
     'text': 'libs/require/text',
     'pcsMsg' : 'libs/pcs/v1.3/resources',
-    'pcs' : '../../pcs_ui_components_v1.3/js/libs/pcs/v1.3/min',
+    'pcs' : '/pcs_ui_components_v1.3/js/libs/pcs/v1.3/min',
     'rendererMsg': 'libs/pcs/v1.3/rendererMsg',
     'signals': 'libs/js-signals/signals',
     'customElements': 'libs/webcomponents/custom-elements.min',
     'proj4': 'libs/proj4js/dist/proj4-src',
     'css': 'libs/require-css/css'
   },
-
+  
 //endinjector
 
   // Shim configurations for modules that do not expose AMD
