@@ -8,16 +8,16 @@
 
 
 
-define(['ojs/ojcore', 'knockout', 'jquery', 'pcs/pcs.taskhistory'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'pcs/pcs.comments'],
  function(oj, ko, $) {
+
 
     function DashboardViewModel() {
       var self = this;
-      var taskhistory = $('#taskhistory');
+      $("#comments").comments({
+            comments: []
+		        });
 
-      $("#taskhistory").taskhistory({
-          taskNumber : '230001',
-      });
       // Below are a subset of the ViewModel methods invoked by the ojModule binding
       // Please reference the ojModule jsDoc for additional available methods.
 

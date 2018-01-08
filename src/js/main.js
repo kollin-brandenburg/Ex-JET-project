@@ -2,6 +2,7 @@
  * Copyright (c) 2014, 2017, Oracle and/or its affiliates.
  * The Universal Permissive License (UPL), Version 1.0
  */
+
 'use strict';
 
 /**
@@ -34,6 +35,8 @@ requirejs.config({
     'proj4': 'libs/proj4js/dist/proj4-src',
     'css': 'libs/require-css/css'
   },
+
+
   //endinjector
 
   // Shim configurations for modules that do not expose AMD
@@ -43,6 +46,13 @@ requirejs.config({
     }
   }
 });
+
+
+
+
+
+
+
 
 
 /**
@@ -64,9 +74,8 @@ require([
   'ojs/ojbutton',
   'ojs/ojtoolbar',
   'ojs/ojcheckboxset',
-  'ojs/ojlabel'
-  // ,
-  // 'pcs/pcs.applist'
+  'ojs/ojlabel',
+  'pcs/pcs.apList'
 ], function(oj, ko, app, $) { // this callback gets executed when all required modules are loaded
   // oj.ModuleBinding.defaults.modelPath = './';
   // oj.ModuleBinding.defaults.viewPath = 'text!./';
@@ -76,6 +85,26 @@ require([
    serverURL: 'http://slc07dsq.us.oracle.com:7001',
    authInfo : 'Bearer eyJhbGciOiJSGciObGciOiJSGcbGciOiJSGciGciOi'
   };
+
+  var appList = $('#applist');
+  self.plugin = appList.applist({
+             hideStartform : self.hideStartform(),
+             startformDialog : self.startformDialog()
+         });
+
+   // Defining the event listeners --
+  appList.on('applist:formSelected', function(event, data){
+
+  });
+
+ appList.on('applist:formSubmited', function(event, data,instance){
+
+ });
+
+ appList.on('applist:formSaved', function(event, data ,instance){
+
+ });
+
 
   $(function() {
     function init() {
