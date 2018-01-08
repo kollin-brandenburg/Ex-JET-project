@@ -64,7 +64,8 @@ require([
   'ojs/ojbutton',
   'ojs/ojtoolbar',
   'ojs/ojcheckboxset',
-  'ojs/ojlabel',
+  'ojs/ojlabel'
+  // ,
   // 'pcs/pcs.applist'
 ], function(oj, ko, app, $) { // this callback gets executed when all required modules are loaded
   // oj.ModuleBinding.defaults.modelPath = './';

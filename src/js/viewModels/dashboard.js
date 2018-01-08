@@ -5,11 +5,19 @@
 /*
  * Your dashboard ViewModel code goes here
  */
+
+
+
 define(['ojs/ojcore', 'knockout', 'jquery', 'pcs/pcs.taskhistory'],
  function(oj, ko, $) {
 
     function DashboardViewModel() {
       var self = this;
+      var taskhistory = $('#taskhistory');
+
+      $("#taskhistory").taskhistory({
+          taskNumber : '230001',
+      });
       // Below are a subset of the ViewModel methods invoked by the ojModule binding
       // Please reference the ojModule jsDoc for additional available methods.
 
