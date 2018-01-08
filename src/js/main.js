@@ -26,9 +26,9 @@ requirejs.config({
     'ojL10n': 'libs/oj/v4.1.0/ojL10n',
     'ojtranslations': 'libs/oj/v4.1.0/resources',
     'text': 'libs/require/text',
-    'pcsMsg' : 'libs/pcs/v1.3/resources',
-    'pcs' : 'node_modules/pcs_ui_components_v1.3',
-    'rendererMsg': 'libs/pcs/v1.3/rendererMsg',
+    'pcsMsg' : 'libs/pcs/resources',
+    'pcs' : 'libs/pcs/min',
+    'rendererMsg': 'libs/pcs/rendererMsg',
     'signals': 'libs/js-signals/signals',
     'customElements': 'libs/webcomponents/custom-elements.min',
     'proj4': 'libs/proj4js/dist/proj4-src',
@@ -65,7 +65,7 @@ require([
   'ojs/ojtoolbar',
   'ojs/ojcheckboxset',
   'ojs/ojlabel',
-  'pcs/pcs.applist'
+  // 'pcs/pcs.applist'
 ], function(oj, ko, app, $) { // this callback gets executed when all required modules are loaded
   // oj.ModuleBinding.defaults.modelPath = './';
   // oj.ModuleBinding.defaults.viewPath = 'text!./';

@@ -121,11 +121,17 @@ module.exports = function () {
       copyCustomLibsToStaging: {
        fileList: [
         {
-          cwd:'node_modules/pcs_ui_components_v1.3',
+          cwd:'node_modules/pcs_ui_components_v1.3/pcs_ui_components_v1.3/js/libs/pcs/v1.3',
           src: ['**'],
           dest: 'web/js/libs/pcs'
         }
-       ]
+        // ,
+        // {
+        //   cwd:'node_modules/pcs_ui_components_v1.3/pcs_ui_components_v1.3/css/libs/pcs/v1.3',
+        //   src: ['**'],
+        //   dest: 'web/css/alta'
+        // }
+      ]
       }
     },
 
