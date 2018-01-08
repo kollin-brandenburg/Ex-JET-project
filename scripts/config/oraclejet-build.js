@@ -5,16 +5,16 @@
 'use strict';
 /**
  * # oraclejet-build.js
- * This script allows users to configure and customize the grunt build tasks. 
- * Configurable tasks include: 
+ * This script allows users to configure and customize the grunt build tasks.
+ * Configurable tasks include:
  *   copySrcToStaging
  *   copyCustomLibsToStaging
  *   injectTheme
  *   injectPaths
  *   uglify
  *   requireJs
- *   sass 
- * To configure a task, uncomment the corresponding sections below, and pass in your configurations. 
+ *   sass
+ * To configure a task, uncomment the corresponding sections below, and pass in your configurations.
  * Any options will be merged with default configuration found in node_modules/@oracle/oraclejet-tooling/lib/defaultconfig.js
  * Any fileList options will replace the corresponding option defined by the default configuration in its entirety - ie. arrays are not merged.
  */
@@ -25,8 +25,8 @@ module.exports = function () {
 /**
  * # copyCustomLibsToStaging
  * This task copies any custom libraries that are not provided by JET to staging directory.
- * This task supports a single option: fileList. The fileList option defines an array of file objects. 
- * Each file object contains the following properties: 
+ * This task supports a single option: fileList. The fileList option defines an array of file objects.
+ * Each file object contains the following properties:
  *   cwd, current working directory
  *   dest, destination path
  *   src, array of source file patterns
@@ -37,9 +37,9 @@ module.exports = function () {
     // copyCustomLibsToStaging: {
     //  fileList: [
     //   {
-    //     cwd:'node_modules/oraclejet/',
+    //     cwd:'node_modules/pcs_ui_components_v1.3',
     //     src: ['*'],
-    //     dest: 'web/js/libs/oraclejet'
+    //     dest: 'web/js/libs/pcs'
     //   }
     //  ]
     // }
@@ -47,7 +47,7 @@ module.exports = function () {
 /**
  * # copySrcToStaging
  * This task copies all source files and libraries to staging directory.
- * This task supports a single option: fileList. The fileList option defines an array of file objects. 
+ * This task supports a single option: fileList. The fileList option defines an array of file objects.
  * See descriptions and example in copyCustomLibsToStaging for configuring the fileList.
  */
     // copySrcToStaging: {
@@ -78,8 +78,8 @@ module.exports = function () {
 
 /**
  * # uglify
- * This task minifies source files and libraries that don't have minified distributions. 
- * It runs only when build in release mode. Support input of fileList that contains an array of file objects. 
+ * This task minifies source files and libraries that don't have minified distributions.
+ * It runs only when build in release mode. Support input of fileList that contains an array of file objects.
  * See the example in copyCustomLibsToStaging for configuring the fileList.
  * See detailed uglify options at https://github.com/mishoo/UglifyJS
  */
@@ -90,7 +90,7 @@ module.exports = function () {
 
 /**
  * # requireJs
- * This task runs requirejs optimizer to bundle all scripts in to a large minified main.js for release. 
+ * This task runs requirejs optimizer to bundle all scripts in to a large minified main.js for release.
  * It runs only when build in release mode.
  * The task mirrors the configuration in this link https://github.com/gruntjs/grunt-contrib-requirejs
  */
@@ -114,24 +114,24 @@ module.exports = function () {
     // },
 
 /**
- * This is the web specific configuration. You can specify configurations targeted only for web apps. 
- * The web specific configurations will override the general configuration. 
+ * This is the web specific configuration. You can specify configurations targeted only for web apps.
+ * The web specific configurations will override the general configuration.
  */
     web: {
-    // copyCustomLibsToStaging: {
-    //  fileList: [
-    //   {
-    //     cwd:'node_modules/oraclejet/',
-    //     src: ['*'],
-    //     dest: 'web/js/libs/oraclejet'
-    //   }
-    //  ]
-    // }
-    }, 
+      copyCustomLibsToStaging: {
+       fileList: [
+        {
+          cwd:'node_modules/pcs_ui_components_v1.3',
+          src: ['**'],
+          dest: 'web/js/libs/pcs'
+        }
+       ]
+      }
+    },
 
 /**
- * This is the hybrid specific configuration. You can specify configurations targeted only hybrid apps. 
- * The hybrid specific configurations will override the general configuration. 
+ * This is the hybrid specific configuration. You can specify configurations targeted only hybrid apps.
+ * The hybrid specific configurations will override the general configuration.
  */
     hybrid: {
     // copyCustomLibsToStaging: {

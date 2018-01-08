@@ -27,7 +27,7 @@ requirejs.config({
     'ojtranslations': 'libs/oj/v4.1.0/resources',
     'text': 'libs/require/text',
     'pcsMsg' : 'libs/pcs/v1.3/resources',
-    'pcs' : '/pcs_ui_components_v1.3/js/libs/pcs/v1.3/min',
+    'pcs' : 'node_modules/pcs_ui_components_v1.3',
     'rendererMsg': 'libs/pcs/v1.3/rendererMsg',
     'signals': 'libs/js-signals/signals',
     'customElements': 'libs/webcomponents/custom-elements.min',

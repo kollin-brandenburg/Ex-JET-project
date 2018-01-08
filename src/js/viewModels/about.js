@@ -5,7 +5,7 @@
 /*
  * Your about ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'ojs/ojChart'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'ojs/ojChart', 'pcs'],
  function(oj, ko, $, file) {
 
     function AboutViewModel() {

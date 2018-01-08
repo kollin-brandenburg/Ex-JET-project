@@ -12,5 +12,6 @@
   "signals": "libs/js-signals/signals.min",
   "customElements": "libs/webcomponents/custom-elements.min",
   "proj4": "libs/proj4js/dist/proj4",
-  "css": "libs/require-css/css.min"
+  "css": "libs/require-css/css.min",
+  "pcs": "libs/pcs"
 }
