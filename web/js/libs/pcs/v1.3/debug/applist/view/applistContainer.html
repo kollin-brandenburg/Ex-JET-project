@@ -1,0 +1,53 @@
+<div style="display:none" id="pcs-applist-startform-dialog" class="pcs-applist-startform-dialog"
+     data-bind="attr : { title : bundle.pcs.applist.form }, ojComponent:{component: 'ojDialog', initialVisibility: 'hide' , rootAttributes: { style: 'width: 600px'}}">
+    <div class="oj-dialog-body">
+        <div id="pcs-applist-startform-dialog-div"></div>
+    </div>
+</div>
+
+<div  class="oj-row" id="pcs-applist-error" style="display: none" >
+    <span  class="oj-fwk-icon-status-error oj-fwk-icon" ></span>
+    <span id="pcs-applist-error-msg"></span>
+</div>
+<div id="pcs-applist-succes-msg"></div>
+
+<div class="oj-flex" id="pcs-applist-list-area" style="margin-top:20px">
+
+	<div id="pcs-applist-search-container" class="oj-flex" style="margin-left:20px">
+		<input id="pcs-applist-search-input" type="text"
+			   data-bind="attr:{placeholder: bundle.pcs.applist.search},
+                       ojComponent:{component: 'ojInputText', rootAttributes: {style:'min-width:250px;height:31px'}},
+                       textInput: searchText "/>
+	</div>
+
+    <div class="oj-row oj-flex oj-sm-12 " style="margin-top:10px" id="pcs-applist-list">
+        <!-- ko foreach: searchedStartFormList -->
+        <div class="oj-xl-3 oj-lg-3 oj-md-4 oj-sm-6 oj-flex-item oj-flex pcs-common-center-align pcs-applist-form-box">
+            <div class="oj-flex  oj-sm-12 pcs-common-center-align pcs-applist-link-container">
+                <a data-bind="click:$parent.launchForm" style=" text-decoration: none;cursor: pointer;word-break: break-all;">
+                    <div data-bind=" style : {background: $data.process.processIcon.colorCode} , attr : {title : $data.process.processName} "
+                         class="pcs-applist-process-holder-smaller pcs-applist-process-process-link" >
+                            <span data-bind="text:$data.process.processIcon.initials " class="pcs-applist-link-initials"></span>
+                    </div>
+                </a>
+                <a data-bind="click:$parent.launchForm" style=" text-decoration: none;cursor: pointer;">
+                    <!-- ko if: typeof title != 'undefined' -->
+                    <div style="margin-top:10px;word-break: break-all;" data-bind="text:$data.title" class="pcs-applist-process-process-title">
+					</div>
+                    <!-- /ko -->
+                </a>
+				<div class="pcs-applist-process-process-name">
+					<span data-bind="text: $parent.bundle.pcs.applist.process"> </span>
+					<span data-bind="text:$data.process.processName" ></span>
+				</div>
+                <div style="margin-top:10px;word-break: break-all;" class="pcs-applist-process-process-desc" data-bind="text:$data.description"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+
+	<div id="pcs-applist-overlay"/>
+</div>
+
+
+<div id="pcs-applist-startform"></div>

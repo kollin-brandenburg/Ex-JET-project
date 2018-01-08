@@ -1,0 +1,186 @@
+<div id="pcs-td-mainContainer" class="oj-row oj-panel">
+
+    <div class="oj-message oj-message-error" id="pcs-td-error" style="display: none;margin:20px" >
+            <span class="oj-component-icon oj-message-status-icon oj-message-error-icon"
+                  role="img">
+            </span>
+            <span class="oj-message-content">
+                <div class="oj-message-summary" data-bind="text:bundle.pcs.taskdetail.detail_error" >
+                </div>
+            </span>
+            <div id="pcs-td-error-msg"  style="margin-top:10px; white-space: normal !important;"></div>
+    </div>
+
+    <div id="pcs-td-detailContainer">
+
+        <div style="display:none" id="pcs-td-close-dialog" class="pcs-td-close-dialog"
+             data-bind="attr : { title : bundle.pcs.taskdetail.dialog_confirm },
+              ojComponent:{component: 'ojDialog', initialVisibility: 'hide'}">
+            <div class="oj-dialog-body">
+                <div data-bind="text : bundle.pcs.taskdetail.dialog_close_msg"/>
+            </div>
+            <div class="oj-dialog-footer">
+                <button
+                        data-bind="click : yesDiscardDialog ,
+                        ojComponent: {component: 'ojButton', label: bundle.pcs.taskdetail.dialog_yes}"></button>
+                <button
+                        data-bind="click : noDiscardDialog ,
+                        ojComponent: {component: 'ojButton', label: bundle.pcs.taskdetail.dialog_no}"></button>
+            </div>
+        </div>
+
+        <h1 style="float: left">
+            <div data-bind="text :taskObject.title" class="pcs-td-title" id="pcs-td-title"></div>
+        </h1>
+		<div>
+			<span class="pcs-td-priority" data-bind="visible: taskObject.priority()[0] === 'HIGH',
+														attr : { title : bundle.pcs.taskdetail.priority_high }"></span>
+		</div>
+
+
+        <div class="oj-sm-text-align-end">
+            <span id="pcs-td-custom-actions">
+            <!-- ko foreach: taskObject.customActions -->
+                <button class="pcs-td-custom-actions"
+                        data-bind="ojComponent: {
+                            component:'ojButton', label: $data.title,
+                            chroming: 'full',
+                        }, click : $parent.submitTaskDetail">
+                </button>
+            <!-- /ko -->
+            </span>
+            <button id="pcs-td-save"
+                    data-bind="ojComponent: {
+                        component:'ojButton', label: bundle.pcs.taskdetail.save, disabled : readOnly,
+                        chroming: 'full',
+                    } , click :saveTaskDetail">
+            </button>
+            <button id="pcs-td-close" class="oj-button-sm "
+                    aria-label="Close" role="button"
+                    data-bind="click: closeTaskDetail, ojComponent: {component:'ojButton',
+                                         label: bundle.pcs.taskdetail.close,
+                                         display: 'icons',  chroming: 'half',
+                                         icons: {start: 'pcs-td-close oj-fwk-icon'}}">
+            </button>
+			<span id="pcs-td-expand" data-bind="visible:showResize, ojComponent: {component: 'ojButtonset', checked: viewExpanded}">
+				<label for="pcs-td-resize"></label>
+				<input type="checkbox" id="pcs-td-resize" value="true"
+					   data-bind="attr:{title: bundle.pcs.taskdetail.resize},
+						ojComponent: { component: 'ojButton',
+						label: bundle.pcs.taskdetail.resize,
+						display: 'icons', chroming: 'half',
+						icons: {start: 'pcs-td-resize oj-fwk-icon'},
+						rootAttributes: {class:'oj-button-sm'}}"/>
+			</span>
+        </div>
+
+        <div data-bind="text:taskObject.shortSummary" style="margin-bottom: 20px;clear:both" class="pcs-td-summary" id="pcs-td-summary"></div>
+        <hr />
+        <div id="pcs-td-links"class="oj-row pcs-common-center-align" style="margin-top:20px">
+            <div  class="pcs-common-center-align">
+                <span id="pcs-td-link-comments">
+                    <a data-bind="click:openComments, text:bundle.pcs.taskdetail.comments" ></a>
+                    <span class="pcs-common-bar"></span>
+                </span>
+                <span id="pcs-td-link-attachments">
+                    <a data-bind="click:openAttachments, text:bundle.pcs.taskdetail.attachments" ></a>
+                    <span class="pcs-common-bar"></span>
+                </span>
+                <span id="pcs-td-link-history">
+                    <a data-bind="click:openHistory, text:bundle.pcs.taskdetail.history"></a>
+                    <span class="pcs-common-bar"></span>
+                </span>
+                <span id="pcs-td-link-moreInfo">
+                    <a data-bind="click:openMoreInfo, text:bundle.pcs.taskdetail.more_info"></a>
+                    <span class="pcs-common-bar"></span>
+                </span>
+                <span id="pcs-td-link-conversation" style="display:none">
+                    <a data-bind="click:openConversation, text:bundle.pcs.taskdetail.conversation"></a>
+                </span>
+            </div>
+        </div>
+
+        <div id="pcs-td-action-success-msg-container" style="display: none;margin-bottom:20px">
+            <span title="Success" role="img" class="oj-fwk-icon-status-confirmation oj-fwk-icon"></span>
+            <span id="pcs-td-action-success-msg" class="pcs-td-action-success-msg"></span>
+        </div>
+
+        <div id="pcs-td-action-error-msg-container" class="pcs-td-action-error-msg-container"  style="display: none">
+            <span class="oj-component-icon oj-message-status-icon oj-message-error-icon" role="img" id="pcs-td-error-msg-icon" style="float: left ;margin-right:10px" ></span>
+            <pre id="pcs-td-action-error-msg" class="pcs-td-action-error-msg"></pre>
+        </div>
+
+        <div id="pcs-td-form" data-bind="ojComponent: {component: 'ojCollapsible', expanded:true}">
+            <h3>
+                <span id="pcs-td-form-title"  data-bind="text:bundle.pcs.taskdetail.form"></span>
+            </h3>
+            <div id="pcs-td-form-frame" class="oj-row">
+                <div class="oj-row pcs-common-center-align" id="pcs-td-form-loading" style="display:none">
+                    <div class="pcs-common-center-align pcs-common-loading"/>
+                </div>
+
+
+				<div id="pcs-td-form-error-container" style="display: none">
+					<span class="oj-component-icon oj-message-status-icon oj-message-error-icon" role="img" style="float: left ;margin-right:10px" ></span>
+					<pre id="pcs-td-form-error-msg" class="pcs-td-form-error-msg"></pre>
+				</div>
+
+                <div class="oj-xl-12 oj-lg-12 oj-md-12 oj-col" id="pcs-td-form-container">
+                    <iframe id="pcs-td-form-iframe" data-bind="attr: {src: formURL}" frameborder="0" id="pcs-td-iframe" seamless="seamless" scrolling="auto"
+                            style="overflow-x:hidden;width:100%"  width="100%" >
+                        <p data-bind="text:bundle.pcs.taskdetail.frame_error"></p>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id="pcs-td-comments" data-bind="ojComponent: {component: 'ojCollapsible', expanded:false}">
+            <h3>
+                <span id="pcs-td-comments-title" data-bind="text:bundle.pcs.taskdetail.comments"></span>
+            </h3>
+            <div>
+                <div class="pcs-td-comments-container" id="pcs-td-comments-container"></div>
+            </div>
+        </div>
+
+        <div id="pcs-td-attachments" data-bind="ojComponent: {component: 'ojCollapsible', expanded:false}">
+            <h3>
+                <span id="pcs-td-attachment-title" data-bind="text:bundle.pcs.taskdetail.attachments" ></span>
+            </h3>
+            <div>
+                <div class="pcs-td-attachment-container" id="pcs-td-attachment-container"></div>
+            </div>
+        </div>
+
+        <div id="pcs-td-history" data-bind="ojComponent: {component: 'ojCollapsible', expanded:false}">
+            <h3>
+                <span id="pcs-td-history-title" data-bind="text:bundle.pcs.taskdetail.history" ></span>
+            </h3>
+            <div>
+                <div id="pcs-td-history-container" class="pcs-td-history-container"
+                     data-bind='component: {name: "taskHistory", params : {taskNumber : taskNumber , rootElement :rootElement} }'></div>
+            </div>
+        </div>
+
+        <div id="pcs-td-moreInfo" data-bind="ojComponent: {component: 'ojCollapsible', expanded:false}">
+            <h3>
+                <span id="pcs-td-moreInfo-title" data-bind="text:bundle.pcs.taskdetail.more_info"></span>
+            </h3>
+            <div>
+                <div id="pcs-td-moreInfo-container" class="pcs-td-moreInfo-container" data-bind="template: { name: 'pcs-td-moreInfo-template', data: $data }"></div>
+            </div>
+        </div>
+
+
+        <div id="pcs-td-conversation" data-bind="ojComponent: {component: 'ojCollapsible'}" style="display:none">
+            <h3>
+                <span id="pcs-td-conversation-title" data-bind="text:bundle.pcs.taskdetail.conversation"></span>
+            </h3>
+            <div>
+                <div id="pcs-td-conversation-container" ></div>
+            </div>
+        </div>
+
+        <div id="pcs-td-overlay"/>
+    </div>
+</div>

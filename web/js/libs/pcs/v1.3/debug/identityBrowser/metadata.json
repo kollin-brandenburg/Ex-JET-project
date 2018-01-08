@@ -1,0 +1,30 @@
+{
+  "properties": {
+	"value":{
+	  "description":"The identities that needs to be set to the search field on load of the field.",
+	  "type": "string"
+	},
+	"multiple":{
+	  "description":"Value 'true' will allow multiple user values to be selected, 'false' will allow only single value selection",
+	  "type": "boolean"
+	},
+	"scope":{
+	  "description":"The scope of search. Valid inputs are 'user', 'group' or 'all'",
+	  "type": "string",
+	  "value" :"user"
+	},
+	"placeholder":{
+	  "description":"The placeholder text",
+	  "type": "string",
+	  "value" :"Search for identities"
+	},
+	"idbID":{
+	  "description":"The identity browser field document element id. It is used to extract the selected identities",
+	  "type": "string"
+	}
+  },
+  "methods" :{
+  },
+  "events": {
+  }
+}

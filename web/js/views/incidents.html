@@ -1,0 +1,1175 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div id="sampleDemo" style="" class="demo-padding demo-container">
+  <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+    <div id="tabbardemo" >
+
+              <!-- <oj-radioset id="radiosetBasicDemoId"
+                           labelled-by="lid"
+                           value="{{currentEdge}}"
+                           on-value-changed="[[valueChangedHandler]]"
+                           class="oj-choice-direction-row">
+                <oj-option id="topopt" value="top">top</oj-option>
+                <oj-option id="bottomopt" value="bottom">bottom</oj-option>
+                <oj-option id="startopt" value="start">start</oj-option>
+                <oj-option id="endopt" value="end">end</oj-option>
+              </oj-radioset> -->
+              <div id="demo-container" class="oj-flex oj-flex-items-pad demo-edge-top">
+                <oj-tab-bar id="hnavlist"
+                            class="oj-sm-12 oj-md-12 oj-lg-12 oj-flex-item"
+                            edge="bottom"
+                            selection="{{selectedItem}}">
+                            <ul>
+
+                              <li id="aefrequest" >
+                                <a href="#" aria-controls="aefrequest-tab-panel" id="aefrequest-tab" >
+                                  AEF Request
+                                </a>
+                              </li>
+                              <li id="architecture" >
+                                <a href="#" aria-controls="architecture-tab-panel" id="architecture-tab" >
+                                  Architecture
+                                </a>
+                              </li>
+                              <li id="security" >
+                                <a href="#" aria-controls="security-tab-panel" id="security-tab" >
+                                  Security
+                                </a>
+                              </li>
+                              <li id="riskandpolicy" >
+                                <a href="#" aria-controls="riskandpolicy-tab-panel" id="riskandpolicy-tab" >
+                                  Risk and Policy
+                                </a>
+                              </li>
+                              <li id="candi" >
+                                <a href="#" aria-controls="candi-tab-panel" id="candi-tab" >
+                                  C & I
+                                </a>
+                              </li>
+                              <li id="externaldata" >
+                                <a href="#" aria-controls="externaldata-tab-panel" id="externaldata-tab" >
+                                  External Data
+                                </a>
+                              </li>
+                              <li id="csc" >
+                                <a href="#" aria-controls="csc-tab-panel" id="csc-tab" >
+                                  CSC
+                                </a>
+                              </li>
+                              <li id="supply" >
+                                <a href="#" aria-controls="supply-tab-panel" id="supply-tab" >
+                                  Supply
+                                </a>
+                              </li>
+                              <li id="legal" >
+                                <a href="#" aria-controls="legal-tab-panel" id="legal-tab" >
+                                  Legal
+                                </a>
+                              </li>
+                              <li id="finance" >
+                                <a href="#" aria-controls="finance-tab-panel" id="finance-tab" >
+                                  Finance
+                                </a>
+                              </li>
+                              <li id="operations" >
+                                <a href="#" aria-controls="operations-tab-panel" id="operations-tab" >
+                                  Operations
+                                </a>
+                              </li>
+                              <li id="irc" >
+                                <a href="#" aria-controls="irc-tab-panel" id="irc-tab" >
+                                  IRC
+                                </a>
+                              </li>
+                              <li id="oracle" >
+                                <a href="#" aria-controls="oracle-tab-panel" id="oracle-tab" >
+                                  Oracle
+                                </a>
+                              </li>
+                            </ul>
+                </oj-tab-bar>
+
+                <oj-switcher value="[[selectedItem]]">
+                  <div slot="home"
+                       id="home-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="home-tab">
+                    <div class="demo-tab-content">
+                      <h2>Home page content area</h2>
+                      <h2> This is another test</h2>
+                    </div>
+                  </div>
+                  <div slot="blogs"
+                       id="blogs-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="blogs-tab">
+                    <div class="demo-tab-content">
+                      <h2>Blogs content area</h2>
+                      <h2> This is another test</h2>
+                      <h2> This is another test</h2>
+                    </div>
+                  </div>
+                  <div slot="aefrequest"
+                       id="aefrequest-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="aefrequest-tab">
+                    <div class="demo-tab-content">
+                      <h2>AEF Request</h2>
+                    </div>
+                  </div>
+
+                  <div slot="architecture"
+                       id="about-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="about-tab">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">AEF Number</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">AEF Status</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Description</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:90%"></oj-input-text>
+                                  </div>
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div>
+
+                  <div slot="security"
+                       id="security-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="security-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Business Unit </oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://teamspace.exeloncorp.com/sites/CSADS-Public/SitePages/Home.aspx?RootFolder=%2Fsites%2FCSADS-Public%2FShared%20Documents%2FSecurity%20Baseline%20Documents&FolderCTID=0x012000516C631D4DCD144EB570018C80F8C10A&View=%7b9E786D87-0096-4B3D-A3B5-F041EC9B0">CSDS</a>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Security Architect Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Security Architect Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Are detailed network or system diagrams, dataflow, and/or other architecture documents available?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Has the CISS conducted a security/risk assessment of this application system (or any related component) within the lsat year?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-flex-item">
+                                    <oj-label for="input">If Yes, when?</oj-label>
+                                    <oj-input-date id="date" value='{{cissDate}}'>
+                                    </oj-input-date>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Will this project/iniative result in a change to the data classification level for the data processed/stored?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Will network connectivity(e.g. VPN, point-to-point, MPLS) or data-sharing be required with a third party?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Will new, or additional, security monitoring and/or logging be required for this application/system or to any related component?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Will the project or iniative have new internet exposed websites created?</oj-label>
+                                    <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                      <oj-option value="YES">YES</oj-option>
+                                      <oj-option value="NO">NO</oj-option>
+                                      <oj-option value="NA">N/A</oj-option>
+                                    </oj-select-one>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If Yes, please list all URL's below:</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <a href="http://teamapps.exeloncorp.com/sites/securityexceptions/SitePages/Home.aspx">Security & Compliance Exceptions</a>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div slot="riskandpolicy"
+                       id="riskandpolicy-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="security-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Risk & Policy Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Risk & Policy Analyst Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Risk & Policy Analyst Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">PII Data</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://mgmtmodel.exeloncorp.com/_layouts/15/WopiFrame2.aspx?sourcedoc=/Management%20Model%20Documents/LE-AC-31.docx">LE-AC-31</a>
+
+                                    </div>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Data Classification</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://mgmtmodel.exeloncorp.com/_layouts/15/WopiFrame2.aspx?sourcedoc=/Management%20Model%20Documents/LE-AC-301.docx">LE-AC-301</a>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <a href="http://teamapps.exeloncorp.com/sites/securityexceptions/SitePages/Home.aspx">Security & Compliance Exceptions</a>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div slot="candi"
+                       id="candi-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="security-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">C & I Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">C & I Architect Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">C & I Architect Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">TRP Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://teamapps.exeloncorp.com/sites/ITArchitectureAndTransformation/ITArchitecture/Engage/TechnicalReview/Pages/default.aspx">TRP</a>
+                                    </div>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Middleware/Integration/SOA required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Code Block</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Web & Collaboration requirements</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Oracle Databases</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Mobile Requirements?</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">SQL Server Databases</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div slot="externaldata"
+                       id="externaldata-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="security-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Cloud/Hosting/External Data Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+<!--
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">VSQ Required</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">C & I Architect Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div> -->
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">VSQ Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://teamspace.exeloncorp.com/sites/CSADS-Public/Shared%20Documents/Forms/AllItems.aspx?RootFolder=/sites/CSADS-Public/">VSQ</a>
+                                    </div>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Cloud SRM</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://teamspace.exeloncorp.com/sites/CSADS-Public/Shared%20Documents/Forms/AllItems.aspx?RootFolder=/sites/CSADS-Public/Shared%20Documents/Cloud%20Security%20Requirements&FolderCTID=0x012000516C631D4DCD144EB570018C80F8C10A&View=%7b8E16F0A8-A580-437B-91DD-">CloudSRM</a>
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Cloud Type</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="IAAS">IaaS</oj-option>
+                                                <oj-option value="PAAS">PaaS</oj-option>
+                                                <oj-option value="SAAS">SaaS</oj-option>
+                                                <oj-option value="OTHER">Other</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Cloud Data Type</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="EXELON">Exelon</oj-option>
+                                                <oj-option value="VENDOR">Vendor</oj-option>
+                                                <oj-option value="BOTH">Both</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Software Provider</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Hosting Provider</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Hosting Provider</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div slot="csc"
+                       id="csc-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="csc-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">CSC Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">CSC Status</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">CSC Final Review Completed On</oj-label>
+                                    <oj-input-date id="date" value='{{cissDate}}'>
+                                    </oj-input-date>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">CSC Final Review Completed On</oj-label>
+                                    <oj-input-date id="date" value='{{cissDate}}'>
+                                    </oj-input-date>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div slot="supply"
+                       id="supply-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="supply-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Supply Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://teamspace.exeloncorp.com/sites/Supply_IT_Engagement/SitePages/Home.aspx">Supply Intake</a>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Supply Approver Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Supply Approver Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Contract Type</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Request Contract Award Date</oj-label>
+                                    <oj-input-date id="date" value='{{cissDate}}'>
+                                    </oj-input-date>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div slot="legal"
+                       id="legal-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="legal-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Legal Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://opensupadraftemail">Email Legal</a>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Legal Approver Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Legal Approver Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Legal Proxy Approver Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Legal Proxy Approver Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div slot="finance"
+                       id="finance-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="finance-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Finance Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://teamapps.exeloncorp.com/sites/ITArchitectureAndTransformation/ITArchitecture/Engage/Reference%20Documents/Cloud%20Finance%20Checklist.xlsx">Finance Checklist</a>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Finance Approver Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Finance Approver Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div slot="operations"
+                       id="operations-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="operations-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Operations Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://teamapps.exeloncorp.com/sites/ProductionReadiness/SitePages/Home.aspx">Operations(Production Readiness)</a>
+                                              <span>  </span>
+                                              <a href="http://teamapps.exeloncorp.com/sites/ITArchitectureAndTransformation/ITArchitecture/Engage/CloudOperationsQuestionnaire/Forms/AllItems.aspx">Operations(Cloud Operations)</a>
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Operations Approver Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">Operations Approver Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div slot="irc"
+                       id="irc-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="irc-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">IRC Required</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                              <a href="http://teamapps.exeloncorp.com/sites/ITArchitectureAndTransformation/ITArchitecture/Engage/New%20Technology/Pages/default.aspx">New Technology Process</a>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">IRC Approver Name</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">IRC Approver Email</oj-label>
+                                    <oj-input-text id="input" required value=""></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div slot="oracle"
+                       id="oracle-tab-panel"
+                       role="tabpanel"
+                       aria-labelledby="oracle-tab"
+                       style="max-width:100%">
+                    <div class="demo-tab-content">
+                      <div class="demo-grid-sizes demo-flex-display">
+                        <div class="oj-flex oj-flex-items-pad">
+                          <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-flex-item">
+                            <div id="form-container" class="oj-form-layout">
+                              <div class="oj-form">
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <a href="http://teamapps.exeloncorp.com/sites/ITArchitectureAndTransformation/ITArchitecture/OSP/Pages/default.aspx">Exelon Oracle Strategic Partnership</a>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item oj-flex-items-pad">
+                                    <oj-label for="input">Does this project/initiative include software?</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item">
+                                    <oj-label for="input">If so, is it Cloud and/or On-Premise software?</oj-label>
+                                    <oj-checkboxset labelled-by="mainlabelid" class='oj-choice-direction-row'>
+                                      <oj-option id="onpremise" value="onpremise">On-Premise</oj-option>
+                                      <oj-option id="cloud" value="cloud">Cloud</oj-option>
+                                    </oj-checkboxset>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">ON-PREMISE SOLUTION</oj-label>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item oj-flex-items-pad">
+                                    <oj-label for="input">Have you evaluated/considered an Oracle Solution?</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If yes, list which Oracle Products/solutions were evalutead and if no, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item oj-flex-items-pad">
+                                    <oj-label for="input">Does the Oracle On-Premise solution meet the requirements?</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If no, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">CLOUD SOLUTION</oj-label>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item oj-flex-items-pad">
+                                    <oj-label for="input">Have you evaluated/considered Oracle Cloud Solution?</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item oj-flex-items-pad">
+                                    <oj-label for="input">Are you replacing an existing On-Premise Oracle Solution (shelving opportunity)?</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item oj-flex-items-pad">
+                                    <oj-label for="input">Does the Oracle Cloud Solution meet the requirements?</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If no, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">CTA</oj-label>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-6 oj-flex-item oj-flex-items-pad">
+                                    <oj-label for="input">If applicable, is the Oracle Solution Cost to Achieve(CTA) less than known alternatives?</oj-label>
+                                    <div id="containerDiv">
+                                              <oj-select-one id="basicSelect" value="{{securityval}}" style="max-width:4em">
+                                                <oj-option value="YES">YES</oj-option>
+                                                <oj-option value="NO">NO</oj-option>
+                                              </oj-select-one>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">If no, please explain</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                                <div class="oj-flex">
+                                  <div class="oj-sm-12 oj-flex-item">
+                                    <oj-label for="input">Comments/Notes</oj-label>
+                                    <oj-input-text id="input" required value="" style="max-width:70%"></oj-input-text>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </oj-switcher>
+              </div>
+            </div>
+  </div>
+
+
+</div>
+</div>

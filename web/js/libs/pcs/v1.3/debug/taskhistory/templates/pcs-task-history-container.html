@@ -1,0 +1,184 @@
+<div id="pcs-th-panelPage">
+	<div class="oj-flex">
+		<div class="oj-panel oj-panel-alt2 oj-margin demo-mypanel"  style="background-color: #e9ebee;">
+			<div >
+				<h3 style="background-color: #c9d3dd; padding: 10px; margin: -14px;" data-bind="text:bundle.pcs.taskHistory.history"></h3>
+				<div>
+					<div style="padding-left: 30px; padding-top: 30px; margin-right: 100px;">
+						<ul style="border-left: 3px solid #6ae25d; list-style: none outside;">
+							<div id="pcs-th-taskHistoryDiv-new">
+
+								<!-- ko foreach: procHistData -->
+
+								<li data-bind="visible: $data.activityType === 'START_EVENT'" class='pcs-th-green-dot-image'>
+
+									<span data-bind="html: $data.displayMessage"/>
+									<br>
+									<span class='pcs-th-history-date' data-bind="text: $data.creationDate"/>
+									<br><br><br>
+
+								</li>
+
+								<li data-bind="visible: $data.activityType === 'END_EVENT'" class='pcs-th-green-dot-image'>
+
+									<span data-bind="text: $data.displayMessage"/>
+									<br>
+									<span class='pcs-th-history-date' data-bind="text: $data.creationDate"/>
+									<br><br><br>
+
+								</li>
+
+								<li data-bind="visible: $data.activityType === 'FUTURE_TASK'" class='pcs-th-grey-dot-image'>
+
+									<span data-bind="html: $data.displayMessage"/>
+									<br><br><br>
+
+								</li>
+
+								<li data-bind="visible: ($data.activityType === 'USER_TASK' && $data.showExpanded === 'false')" class='pcs-th-green-dot-image'>
+
+									<span class='pcs-th-history-task-title' data-bind="text: $data.displayMessage"/>
+									<br>
+									<span class='pcs-th-history-date' data-bind="text: $data.creationDate"/>
+									<br><br><br>
+
+								</li>
+
+
+								<div data-bind="visible: ($data.activityType === 'USER_TASK' && $data.showExpanded === 'true')">
+
+									<li  class='pcs-th-blue-dot-image pcs-th-history-user-task-top'>
+
+										<span class='pcs-th-history-task-title' data-bind="text: $data.displayMessage"/>
+										<br>
+										<span class='pcs-th-history-date' data-bind="text: $data.creationDate"/>
+										<br><br>
+
+										<!--assigneesHTMLTable starts -->
+
+
+										<!--<table>
+                                            <tr>
+                                                <td rowspan='2' style='padding-left: 0px'>
+                                                    <table>
+                                                        <tr>
+                                                            <td class='pcs-th-assignee-table'>
+                                                                <div data-bind="attr: { class: $data.routingTypeImageClass, title: $data.routingTypeImageTitle }"/>
+                                                                &lt;!&ndash;<img data-bind="attr: { class: $data.routingTypeImageClass, title: $data.routingTypeImageTitle }">&ndash;&gt;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class='pcs-th-assignee-table'>
+                                                                <span data-bind="text: $data.routingTypeMoreInfo"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                &lt;!&ndash; ko foreach: $data.originalAssignees &ndash;&gt;
+
+                                                    <td class='pcs-th-assignee-table'>
+                                                        <div data-bind="css: $data.assigneeTypeImageClass"/>
+                                                        &lt;!&ndash;<img data-bind="css: $data.assigneeTypeImageClass">&ndash;&gt;
+                                                    </td>
+
+                                                &lt;!&ndash; /ko&ndash;&gt;
+                                            </tr>
+                                            <tr>
+                                                &lt;!&ndash; ko foreach: $data.originalAssignees &ndash;&gt;
+                                                    <td class='pcs-th-assignee-table'>
+                                                        <span class='pcs-th-history-assignee-text' data-bind="text: $data.id">
+                                                        </span>
+                                                    </td>
+                                                &lt;!&ndash; /ko&ndash;&gt;
+                                            </tr>
+                                        </table>-->
+
+										<!--assigneesHTMLTable ends -->
+
+									</li>
+
+									<!-- ko foreach: $data.detailedHistory -->
+
+									<li data-bind="visible: $data.actionType === 'REGULAR'" class='pcs-th-history-user-task-other-rows' style='padding-bottom: 26px;'>
+
+										<div style='float:left; padding-right: 34px; margin-left: -10px' data-bind="css: $data.imageClass">
+											<!--<img data-bind="css: $data.imageClass">-->
+										</div>
+
+										<span style='padding-top: 11px; float: left;' data-bind="html: $data.displayMessage"/> &nbsp &nbsp
+										<span class='pcs-th-history-date pcs-th-history-date-float-right' style='padding-top: 11px;' data-bind="text: $data.creationDate"/>
+
+									</li>
+
+									<li data-bind="visible: $data.actionType === 'COMMENT_ADDED'" class='pcs-th-history-user-task-other-rows'>
+										<div style='float:left; padding-right: 34px; margin-left: -10px' data-bind="css: $data.imageClass">
+											<!--<img data-bind="css: $data.imageClass">-->
+										</div>
+										<span data-bind="html: $data.displayMessage"></span> &nbsp &nbsp
+										<span class='pcs-th-history-date pcs-th-history-date-float-right' data-bind="text: $data.creationDate"></span>
+										<br>
+										<span class='pcs-th-history-comment' data-bind="text: $data.comments"></span>
+									</li>
+
+									<li data-bind="visible: $data.actionType === 'ATTACHMENT_ADDED'" class='pcs-th-history-user-task-other-rows'>
+
+										<div style='float:left; padding-right: 34px; margin-left: -10px' data-bind="css: $data.imageClass">
+											<!--<img data-bind="css: $data.imageClass">-->
+										</div>
+										<span data-bind="html: $data.displayMessage"></span> &nbsp &nbsp
+										<span class='pcs-th-history-date pcs-th-history-date-float-right' data-bind="text: $data.creationDate"></span>
+										<br>
+
+										<!--<span class='pcs-th-history-comment' data-bind="text: $data.attachmentName"></span>-->
+
+										<a href="#"  data-bind="text: $data.attachmentName, value : $data.attachmentURL, click:$root.onAttachmentClick"/>
+
+
+
+									</li>
+
+									<!-- /ko-->
+
+									<br><br>
+
+
+								</div>
+
+
+
+								<!-- /ko-->
+
+
+
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--<div id="pcs-th-panelPage-temp">
+	<div class="oj-flex">
+		<div class="oj-panel oj-panel-alt2 oj-margin demo-mypanel"  style="background-color: #e9ebee;">
+			<div >
+				<h3 style="background-color: #c9d3dd; padding: 10px; margin: -14px;" data-bind="text:bundle.pcs.taskHistory.history"></h3>
+				<div>
+					<div style="padding-left: 30px; padding-top: 30px; margin-right: 100px;">
+						<ul style="border-left: 3px solid #6ae25d; list-style: none outside;">
+							<div id="pcs-th-taskHistoryDiv">
+
+
+
+
+
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>-->

@@ -1,0 +1,61 @@
+<div id="pcs-requestinfo-container">
+	<div id="pcs-requestinfo-modalDialog"
+		 data-bind="visible: !showInline(), ojComponent:{component: 'ojDialog', title: bundle.pcs.taskActions.reqInfoHeader, close: handleClose,
+		 	rootAttributes: { style: 'width: 450px; min-width: 100px; max-width 450px;'}}">
+		<div class="oj-dialog-body" id="pcs-requestinfo-dialog-content">
+		</div>
+		<div class="oj-dialog-footer" id="pcs-requestinfo-dialog-footer">
+		</div>
+	</div>
+
+	<div data-bind="visible: showInline() && isVisible()" class="oj-panel oj-margin">
+		<div id="pcs-requestinfo-inline-content">
+			<div id="pcs-requestInfo-overlay"></div>
+			<div id="form-container" class="oj-form-layout">
+				<div class="oj-form">
+					<div class="oj-flex">
+						<div class="oj-flex-item">
+							<text for="username" class="oj-label oj-label-nocomp" data-bind="text:bundle.pcs.taskActions.username"></text>
+							<div class="oj-flex-item">
+								<div id="username" data-bind='component: {
+								name: "pcs-identity-browser" , params: {multiple: false, placeholderTxt: placeholder(), scope: scope, idbID: idbID}
+							}'></div>
+							</div>
+						</div>
+					</div>
+					<div class="oj-flex">
+						<div class="oj-flex-item">
+							<label for="comments" data-bind="text:bundle.pcs.taskActions.comments"></label>
+							<textarea id="comments" style="resize: both" data-bind="ojComponent:
+                   {component: 'ojTextArea',rootAttributes: {style:'min-width:100%'}, value:comments, required: false}">
+							</textarea>
+						</div>
+					</div>
+					<!--<br/>-->
+					<!--<div class="oj-flex">-->
+						<!--<div class="oj-flex-item">-->
+							<!--<div id="radiosetBasicDemoId1" aria-labelledby="mainlabelid1"-->
+								 <!--data-bind="ojComponent: {-->
+									  <!--component: 'ojRadioset',-->
+									  <!--value: action}" >-->
+								<!--<span class="oj-choice-row">-->
+									<!--<input id="back1" type="radio" name="rbb1" value="back">-->
+									<!--<label for="back1">Route directly back to me</label>-->
+								<!--</span>-->
+								<!--<span class="oj-choice-row">-->
+									<!--<input id="forward1" type="radio" name="rbb1" value="forward">-->
+									<!--<label for="forward1">Require subsequent participants to retake action</label>-->
+								<!--</span>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div id="pcs-requestinfo-inline-footer">
+			<button id="okButton" data-bind="ojComponent: {component: 'ojButton', label: bundle.pcs.taskActions.submit}, click: handleSubmit"> </button>
+			<button id="cancelButton" data-bind="ojComponent: {component: 'ojButton', label: bundle.pcs.taskActions.cancel}, click: handleClose"> </button>
+		</div>
+	</div>
+</div>

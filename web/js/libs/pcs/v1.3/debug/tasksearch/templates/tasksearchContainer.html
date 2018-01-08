@@ -1,0 +1,266 @@
+<div id="pcs-task-search-container" data-bind="visible : mode() === 'Search'" class="oj-flex pcs-task-advance-search-container">
+	<div class="oj-flex-item oj-md-justify-content-center">
+    <input id="searchInpputText" type="text" class="pcs-ts-advance-search-input-text"
+		   data-bind="attr:{placeholder: bundle.pcs.tasksearch.search}, ojComponent:{component: 'ojInputText', rootAttributes: {style:'min-width:350px'}},
+		   suggestItems: autoSuggestions, value: keyword,
+           valueUpdate:['afterkeypress','propertychange','input']"/>
+		<div class="pcs-ts-arrowhead-icon" data-bind="click: showAdvanceSearchPopup, attr: {title: bundle.pcs.tasksearch.show_advance_search}">
+		</div>
+	</div>
+</div>
+<div id="pcs-task-simple-search-container" data-bind="visible : mode() === 'Filter'" class="oj-flex pcs-task-simple-search-container">
+	<div class="oj-flex-item oj-md-justify-content-center">
+		<input id="simpleSearchInpputText" type="text" class="pcs-ts-simple-search-input-text"
+			   data-bind="attr:{placeholder: bundle.pcs.tasksearch.search},ojComponent:{component: 'ojInputText', rootAttributes: {style:'min-width:350px'}}, value: keyword, event:{keyup: onKeyUpSearchTextBox}"/>
+		<div class="pcs-ts-filter-icon" data-bind="visible: showFilter, click: showAdvanceSearchPopup , attr: {title: bundle.pcs.tasksearch.show_filters}">
+		</div>
+	</div>
+</div>
+    <!-- Advanced Search popup -->
+    <div class="pcs-ts-advance-search" id="advanceSearchPopup"
+         data-bind="ojComponent:{component: 'ojDialog', 'initialFocus' : 'firstFocusable',
+                    title : mode() === 'Search' ? bundle.pcs.tasksearch.advanced_search :  bundle.pcs.tasksearch.filters,
+                    rootAttributes : {style: 'min-width: 600px; height: inherit', id: 'advSearchDialog'}}">
+		<!-- ko template: {name: 'advanceSearchTemplate'} -->
+		<!-- /ko -->
+    </div>
+    <script type="text/html" id="menuItemTemplate">
+        <li>
+            <a data-bind="text: item.displayName"></a>
+            <span style="display: none" data-bind="text: ko.toJSON($data)"></span>
+            <!-- ko if: item.items -->
+           	 	<ul data-bind="template: {name: 'menuItemTemplate', foreach: item.items, as: 'item'}">
+            	</ul>
+            <!-- /ko -->
+        </li>
+    </script>
+    <script type="text/html" id="advanceSearchTemplate">
+		<div id="advsrchbody" class="oj-flex oj-md-flex-direction-column oj-dialog-body">
+			<div class="oj-flex-item oj-flex oj-sm-flex-items-initial oj-md-justify-content-center">
+				<div class="oj-flex-item" data-bind="visible: showAdvancedOptions">
+					<div id="matchSet" data-bind="ojComponent: {component: 'ojButtonset', checked: matchCriteria}"
+						 aria-label="Choose only one match criteria.">
+						<!-- ko foreach: matchCriterias -->
+						<label data-bind="attr: {for: id}">Match </label>
+						<input type="radio" name="match"
+							   data-bind="value: id, attr: {id: id},
+                                  ojComponent: { component: 'ojButton', label: label }"/>
+						<!-- /ko -->
+					</div>
+				</div>
+			</div>
+			<div id="formlayout" class="oj-flex-item oj-form-layout">
+				<div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-3 oj-md-labels-inline" id="form">
+					<div class="oj-flex" id="row1" data-bind="visible : mode() === 'Search'">
+						<div class="oj-flex-item pcs-ts-contains-text" id="col1">
+							<input id="text-input"
+								   type="text" placeholder="Contains The Text"
+								   data-bind="ojComponent: {component: 'ojInputText' , rootAttributes: {style:'min-width:100%'}, value: containsText}"/>
+						</div>
+					</div>
+					<div class="oj-flex" id="row2">
+						<div class="oj-flex-item pcs-ts-advanced-search-form-label" id="row2Col1">
+							<label id="statusLabel" for="status" class="pcs-ts-advance-search-label"
+								   data-bind="text: bundle.pcs.tasksearch.status"></label>
+						</div>
+						<div class="oj-flex-item" id="row2Col2">
+							<select id="status" data-bind="ojComponent: {component: 'ojSelect',
+                                                          multiple: mode() === 'Search',
+                                                          value: selectedStatus, rootAttributes: {style:'max-width:100%'},
+                                                          options: availableStatus}">
+							</select>
+						</div>
+					</div>
+					<div class="oj-flex" id="row3">
+						<div class="oj-flex-item pcs-ts-advanced-search-form-label" id="row3Col1">
+							<label id="assigneeLabel" for="assignes" class="pcs-ts-advance-search-label"
+								   data-bind="text: bundle.pcs.tasksearch.assignee"></label>
+						</div>
+						<div class="oj-flex-item" id="row3Col2">
+							<select id="assignes" aria-label="Assigne" data-bind="ojComponent: {component: 'ojSelect',
+                                                          multiple: false,
+                                                          value: selectedAssignees,
+                                                          options: availableAssignees}">
+							</select>
+						</div>
+					</div>
+					<div class="oj-flex" id="row4">
+						<div class="oj-flex-item pcs-ts-advanced-search-form-label" id="row4Col1">
+							<label id="fromUserLabel" for="identityBrowser" class="pcs-ts-advance-search-label"
+								   data-bind="text: bundle.pcs.tasksearch.fromuser"></label>
+						</div>
+						<div class="oj-flex-item" id="row4Col2">
+							<pcs-identity-browser id="fromUser" class="pcs-ts-idb"></pcs-identity-browser>
+						</div>
+					</div>
+					<div class="oj-flex">
+						<div class="oj-flex-item pcs-ts-advanced-search-form-label">
+							<label id="inputgrouplabel" class="pcs-ts-advance-search-label"
+								   data-bind="text: dueDateFilter().displayName"></label>
+						</div>
+						<div class="oj-flex-item">
+							<div class="oj-form-control-group" aria-labelledby="inputgrouplabel" role="group">
+								<select id="dueDateFilter" data-bind="ojComponent: {component: 'ojSelect',
+                                                          multiple: false,
+                                                          value: dueDateFilter().filterOperator,
+                                                          optionChange: dueDateFilter().handleFilterOperatorChange,
+                                                          rootAttributes: {style:'max-width:25%'},
+                                                          options: dueDateFilter().filterOperators}">
+
+								</select>
+								<div id="content" class="pcs-ts-filter-values"  data-bind="foreach : dueDateFilter().values"  >
+									<!-- ko if: type() === $parent.filterValueType.valueTypes.DATE -->
+									<input data-bind="ojComponent: {component: 'ojInputDate' ,value: value, rootAttributes: {style:'width:5vw'}}" />
+									<!-- /ko -->
+									<!-- ko if: type()=== $parent.filterValueType.valueTypes.STRING -->
+									<input  data-bind="ojComponent: {component: 'ojInputText', rootAttributes: {style:'width:30%'}, value: value}" />
+									<!-- /ko -->
+									<!-- ko if: type() === $parent.filterValueType.valueTypes.INTEGER  -->
+									<input  placeholder="Enter Numbers"  data-bind="ojComponent: {component: 'ojInputText',
+									rootAttributes: {style:'width:30%'} , displayOptions: {messages: ['notewindow']},
+									 validators : [{type: 'regExp', options : {pattern: ''^\\d+$',
+								 	messageSummary: 'Value \'{value}\' Invalid',messageDetail: 'You must enter a Number.'}}],
+								  	value: value}" />
+									<!-- /ko -->
+									<!-- ko if: type() === $parent.filterValueType.valueTypes.LIST  -->
+									<select    data-bind="ojComponent: {component: 'ojSelect',
+                                                      multiple: false,
+                                                      rootAttributes: {style:'width:30%'},
+                                                      value: value,
+                                                      options: listOfValues()}">
+									</select>
+									<!-- /ko -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="oj-flex" id="row6">
+						<div class="oj-flex-item pcs-ts-advanced-search-form-label" id="row6Col1">
+							<label for="application" id="applicationLabel" class="pcs-ts-advance-search-label"
+								   data-bind="text: bundle.pcs.tasksearch.application"></label>
+						</div>
+						<div class="oj-flex-item" id="row6Col2">
+							<select id="application" data-bind="ojComponent: {component: 'ojSelect',
+                                                      multiple: true,
+                                                      value: selectedApplications,
+                                                      rootAttributes: {style:'max-width:100%'},options: availableApplications}">
+							</select>
+						</div>
+					</div>
+					<hr style="margin: 20px 0" data-bind="visible: selectedSearchableFields().length > 0"/>
+
+					<!-- ko foreach: selectedSearchableFields -->
+
+					<div class="oj-flex">
+						<div class="oj-flex-item pcs-ts-advanced-search-form-label">
+							<label id="inpgroup" data-bind="text: displayName" class="pcs-ts-advance-search-label"> </label>
+						</div>
+						<div class="oj-flex-item"  style="max-width: 55%;">
+							<div class="oj-form-control-group" aria-labelledby="inputgrouplabel" role="group">
+								<!-- ko if: filterOperators().length > 0 -->
+								<select data-bind="attr{id: name},ojComponent: {component: 'ojSelect',
+                                                      multiple: false,
+                                                      value: filterOperator,
+                                                      optionChange: handleFilterOperatorChange,
+                                                      rootAttributes: {style:'max-width:25%'},
+                                                      options: filterOperators}">
+								</select>
+								<!-- /ko -->
+								<!-- ko if: type() === $parent.filterType.filterTypes.USER -->
+								<!-- <idb  databind="attr: {id: $parent.generateUniqueIdForSearchableFieldOfTypeUser($index()) }" class="pcs-ts-idb"></idb>-->
+								<div data-bind='attr: {id: $parent.generateUniqueIdForSearchableFieldOfTypeUser($index())}, component: {name: "pcs-identity-browser"}' class="pcs-ts-idb"></div>
+								<!-- /ko -->
+								<div class="pcs-ts-filter-values" data-bind="foreach : { data: values(), as: 'filterValue'}">
+									<!-- ko if: filterValue.type() === 'Date' -->
+									<input data-bind="ojComponent: {component: 'ojInputDate', rootAttributes: {style:'width:5vw'}, value: value}"/>
+									<!-- /ko -->
+									<!-- ko if: filterValue.type() ===  'String' -->
+									<input data-bind="ojComponent: {component: 'ojInputText',rootAttributes: {style:'max-width:30%'}, value: value}"/>
+									<!-- /ko -->
+									<!-- ko if: filterValue.type() === 'Integer'  -->
+									<input placeholder="Enter Numbers" data-bind="ojComponent: {component: 'ojInputText',
+                                	rootAttributes: {style:'max-width:30%'}, value: value,
+                                	displayOptions: {messages: ['notewindow']},
+									validators : [{type: 'regExp', options : {pattern: '^\\d+$',
+									messageSummary: 'Value \'{value}\' Invalid',
+									messageDetail:  'You must enter a Integer.'}}]}"/>
+									<!-- /ko -->
+									<!-- ko if: filterValue.type() === 'Long'  -->
+									<input placeholder="Enter Numbers" data-bind="ojComponent: {component: 'ojInputText',
+									rootAttributes: {style:'max-width:30%'}, value: value,
+									displayOptions: {messages: ['notewindow']},
+									validators : [{type: 'regExp', options : {pattern: '^\\d+$',
+									messageSummary: 'Value \'{value}\' Invalid',
+									messageDetail: 'You must enter a Long.'}}]}"/>
+									<!-- /ko -->
+									<!-- ko if: filterValue.type() === 'Double'  -->
+									<input placeholder="Enter Numbers" data-bind="ojComponent: {component: 'ojInputText',
+									rootAttributes: {style:'max-width:30%'}, value: value,
+									displayOptions: {messages: ['notewindow']}
+									validators : [{type: 'regExp', options : {pattern: '[0-9.]{1,}',
+									messageSummary: 'Value \'{value}\' Invalid',
+									messageDetail: 'You must enter a Number.'}}]}"/>
+									<!-- /ko -->
+									<!-- ko if: filterValue.type() === 'Float'  -->
+									<input placeholder="Enter Numbers" data-bind="ojComponent: {component: 'ojInputText',
+									rootAttributes: {style:'max-width:30%'}, value: value,
+									displayOptions: {messages: ['notewindow']}
+									validators : [{type: 'regExp', options : {pattern: '[0-9.]{1,}',
+									messageSummary: 'Value \'{value}\' Invalid',
+									messageDetail: 'You must enter a Number.'}}]}"/>
+									<!-- /ko -->
+									<!-- ko if: filterValue.type() === 'List' -->
+									<select data-bind="ojComponent: {component: 'ojSelect',
+                                                      multiple: false,
+                                                      value: value,
+                                                      rootAttributes: {style:'max-width:30%'},
+                                                      options: listOfValues}">
+									</select>
+									<!-- /ko -->
+								</div>
+							</div>
+						</div>
+						<div class="oj-flex-item" style="max-width: 10%;">
+							<!--<div data-bind=" visible: $parent.showAdvancedOptions, ojComponent: {component: 'ojButtonset', checked: $data.isMust(), display:'icons', icons: {start:'oj-fwk-icon oj-fwk-icon-clock'}}">
+                                <input type="checkbox" id="must" value="Must"/>
+                            </div>-->
+							<button  data-bind="visible: canDelete,click: $parent.removeSelectedSearchableField.bind($data, $index()), ojComponent: {
+                                                    component:'ojButton', chroming: 'half', label: 'Remove', display: 'icons',
+                                                    icons: {start:'oj-fwk-icon pcs-ts-removefilter-icon'}
+                                                }">
+							</button>
+						</div>
+					</div>
+
+					<!-- /ko -->
+				</div>
+				<div class="oj-flex" id="row7" data-bind="visible : mode() === 'Search'">
+					<button id="addFilter"
+							data-bind=" click: onClickAddFilter, ojComponent: {component: 'ojButton',
+                                                                               label: 'Add Filter',
+                                                                               chroming: 'half',
+                                                                               menu: '#filterMenu',
+                                                                               icons: {start: 'oj-fwk-icon pcs-ts-add-filter-menu'}}">
+					</button>
+					<ul id="filterMenu" data-bind="ojComponent: {component: 'ojMenu', select: handleFilterMenuSelection}"
+						class="pcs-ts-serachable-fields-menu">
+						<!-- ko template: {name: 'menuItemTemplate', foreach: availableSearchableFields, as: 'item'} -->
+						<!-- /ko -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="oj-flex oj-sm-flex-items-initial oj-dialog-footer pcs-ts-advanced-search-footer" id="row8">
+			<!--<div class="oj-flex-item">
+				<a data-bind="click: handleAdvancedOptions, text : showAdvancedOptions() ? bundle.pcs.tasksearch.hide_advanced_options :  bundle.pcs.tasksearch.show_advanced_options"></a>
+			</div>-->
+			<div class="oj-helper-margin-start-auto oj-flex-item" id="row7Col1">
+				<button id="cancelBtn"
+						data-bind="click: closeAdvanceSearchPopup, ojComponent: { component: 'ojButton', label: bundle.pcs.tasksearch.cancel}"></button>
+				<button id="searchBtn"
+						class="oj-button-primary"
+						data-bind="click: handleSearch, ojComponent: { component: 'ojButton', label:  mode() === 'Search' ? bundle.pcs.tasksearch.search : bundle.pcs.tasksearch.ok }"></button>
+			</div>
+		</div>
+   </script>
+

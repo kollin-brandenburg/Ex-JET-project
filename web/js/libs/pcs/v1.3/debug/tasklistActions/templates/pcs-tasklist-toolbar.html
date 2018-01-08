@@ -1,0 +1,74 @@
+<div id="pcs-tasktoolbar-container" class="oj-flex-item">
+	<div class="oj-flex pcs-tl-toolbar-padding">
+		<div class="oj-flex-item">
+			<div class="oj-flex">
+				<!-- Offcanvas launch button -->
+				<!--<button data-bind="click:onLeftMenuBtnClick, ojComponent: {component:'ojButton', label: bundle.pcs.tasklist.toggleLeftMenu,-->
+							 <!--chroming: 'half', display: 'icons', icons: {start: 'oj-fwk-icon-hamburger oj-fwk-icon'}}"-->
+						<!--class="oj-flex-item oj-lg-flex-initial"></button>-->
+				<div class="pcs-tl-margin5" data-bind="visible: !hideSelectAll,ojComponent: {component: 'ojButtonset',
+														checked: isSelected}">
+					<label class="pcs-tl-action-menu-item" data-bind="text:bundle.pcs.tasklist.selectAll" for="pcs-tl-selectall"></label>
+					<input type="checkbox" id="pcs-tl-selectall" value="selected"/>
+				</div>
+				<div class="oj-flex-item">
+					<task-actions params="taskactionParams: taskactionParams"></task-actions>
+				</div>
+			</div>
+		</div>
+		<div class="oj-flex-item oj-flex oj-lg-justify-content-flex-end">
+
+			<div class="oj-flex-item pcs-tl-search-container" data-bind="visible: !hideSearch">
+				<!--<input id="pcs-tl-search"-->
+					   <!--type="text"-->
+					   <!--data-bind="ojComponent: {component: 'ojInputText',-->
+                                  <!--value: keywordSearchString,-->
+                                  <!--rawValue: keywordSearchString,-->
+                                  <!--rootAttributes: {style: 'min-width:350px'},-->
+                                  <!--placeholder: bundle.pcs.tasklist.search}"/>-->
+				<task-search params="mode:'Filter', showFilter: !hideFilter, tasklistFilter: tasklistFilter",></task-search>
+			</div>
+			<!-- Hide pcs-tl-sort-container if a task is selected-->
+			<div id="pcs-tl-sort-container" class="oj-flex-item oj-lg-flex-initial"
+				 data-bind="visible: !isTaskSelected() && !hideSort">
+				<div class="oj-flex oj-lg-justify-content-flex-end">
+					<label for="pcs-tl-sortBy" class="oj-label-inline pcs-tl-gray pcs-tl-action-font oj-flex-item"
+						   data-bind="text:bundle.pcs.tasklist.sortBy, attr: {title: bundle.pcs.tasklist.sortBy}"></label>
+					<select id="pcs-tl-sortBy"
+							class="oj-flex-item"
+							data-bind=" ojComponent: {component: 'ojSelect', optionChange: onSortOptionChange,
+                                                                        value: currentSort, rootAttributes: {style:'max-width:11em'}}">
+						<!-- ko foreach: sortTasksBy -->
+						<option data-bind="value:id, text:label, attr: {title:label}"></option>
+						<!-- /ko -->
+					</select>
+					<button id="pcs-tl-direction-btn"
+							class="oj-flex-item oj-lg-flex-initial"
+							data-bind=" click:onDirectionBtnClick , ojComponent: {
+                                                                component:'ojButton', display: 'icons', chroming: 'half', label: sortTitleTxt,
+                                                                icons: {start:'oj-fwk-icon pcs-tl-sorta-icon'}
+                                                            }">
+					</button>
+				</div>
+			</div>
+			<div class="oj-flex-item oj-lg-flex-initial">
+				<div class="oj-flex oj-lg-justify-content-flex-end">
+					<!--<label for="pcs-tl-refresh-date" class="oj-label-inline pcs-tl-gray pcs-tl-action-font"-->
+					<!--data-bind="text: bundle.pcs.tasklist.updated"></label>-->
+					<!--<span id="pcs-tl-refresh-date" class="oj-label-inline pcs-tl-gray pcs-tl-action-font"-->
+					<!--data-bind="text: refreshDate"></span>-->
+					<button id="pcs-tl-refresh-btn" data-bind="visible: !hideRefresh, click: onRefreshBtnClick, ojComponent: {
+                                                    component:'ojButton', chroming: 'half', label: bundle.pcs.tasklist.refresh, display: 'icons',
+                                                    icons: {start:'oj-fwk-icon pcs-tl-refresh-icon'}
+                                                }">
+					</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div id="pcs-tl-action-success-msg-container" class="pcs-tl-hidden">
+		<span title="Success" role="img" class="oj-fwk-icon-status-confirmation oj-fwk-icon"></span>
+		<b><span id="pcs-tl-action-success-msg" class="pcs-tl-action-success-msg"></span></b>
+	</div>
+</div>

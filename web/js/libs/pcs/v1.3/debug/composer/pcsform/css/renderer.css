@@ -1,0 +1,341 @@
+/* Popups are added at the top of the html */
+.oj-popup .oj-popup-content {
+    max-width: 450px;
+    word-wrap: break-word;
+}
+
+form-renderer a,
+form-renderer a:visited,
+form-renderer a:hover {
+    color: #045fab!important;
+}
+
+form-renderer a .oj-clickable-icon,
+form-renderer a .oj-tabs-tab-icon,
+form-renderer a.oj-clickable-icon,
+form-renderer a.oj-tabs-tab-icon,
+form-renderer a.oj-clickable-icon-nocontext,
+form-renderer a:visited .oj-clickable-icon,
+form-renderer a:visited .oj-tabs-tab-icon,
+form-renderer a:visited.oj-clickable-icon,
+form-renderer a.oj-tabs-tab-icon:visited,
+form-renderer a:visited.oj-clickable-icon-nocontext {
+    color: #878c90!important;
+}
+
+form-renderer a .oj-clickable-icon:hover,
+form-renderer a .oj-tabs-tab-icon:hover,
+form-renderer a.oj-clickable-icon:hover,
+form-renderer a.oj-tabs-tab-icon:hover,
+form-renderer a.oj-clickable-icon-nocontext:hover,
+form-renderer a:visited .oj-clickable-icon:hover,
+form-renderer a:visited .oj-tabs-tab-icon:hover,
+form-renderer a:visited.oj-clickable-icon:hover,
+form-renderer a.oj-tabs-tab-icon:visited:hover,
+form-renderer a:visited.oj-clickable-icon-nocontext:hover {
+    color: #85bbe7!important;
+}
+
+form-renderer  .canvas .oj-component,
+form-renderer .canvas .oj-component-initnode {
+    max-width: none;
+    min-width: 0;
+}
+
+form-renderer .oj-label-group {
+    max-width: 100%;
+}
+
+form-renderer  .button-control {
+    margin-top: 21px;
+}
+
+form-renderer .oj-inputdatetime-input {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+form-renderer .oj-row {
+    padding: 10px 0;
+}
+
+form-renderer .oj-row.form-container {
+    padding: 0;
+}
+
+form-renderer .row-control {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form-renderer .image-control {
+    width: 100%;
+}
+
+form-renderer .wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+form-renderer .wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+form-renderer .oj-row.panel {
+    padding: 0;
+    margin-top: -1px;
+}
+
+form-renderer .panel .oj-row:first-of-type {
+    padding: 0;
+}
+
+form-renderer .form-reference-container {
+    padding: 0;
+}
+
+form-renderer .broken-reference {
+    background-color: #fafafa;
+    border: 2px dashed #bdc3c7;
+    color: #7f8c8d;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    width: 100%;
+    padding: 0 5px;
+}
+
+form-renderer .broken-reference-text {
+    color: #7f8c8d;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+form-renderer .oj-label-help-def {
+    max-width: calc(100% - 24px) !important;
+}
+
+form-renderer .panel > .oj-col:first-of-type {
+    padding-left: 0;
+}
+
+form-renderer .panel > .oj-col:last-child {
+    padding-right: 0;
+}
+form-renderer .canvas .oj-label {
+    white-space: nowrap;
+}
+
+form-renderer .canvas label, form-renderer .canvas label.oj-label {
+    font-size: 15px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100% !important;
+    display: inline-block;
+    float: none;
+}
+
+form-renderer .canvas .panel .oj-row:last-child {
+    padding-bottom: 0;
+}
+
+form-renderer .oj-inputtext.oj-invalid .oj-inputtext-input,
+form-renderer .oj-inputpassword.oj-invalid .oj-inputpassword-input,
+form-renderer .oj-textarea.oj-invalid .oj-textarea-input {
+    border: 2px solid #dd6666 !important;
+}
+
+form-renderer .definition-action {
+    float: right;
+    border: none;
+    background-color: transparent;
+}
+
+form-renderer .table-control{
+    table-layout: fixed;
+}
+form-renderer .table-control .oj-table-column-header-acc-select-row{
+    width: 0;
+}
+form-renderer .disabled{
+    opacity: 0.3;
+}
+
+
+form-renderer actionable-icon .icon-hover,
+form-renderer actionable-icon .icon-active {
+    display: none;
+}
+form-renderer actionable-icon:hover .icon-hover {
+    display: inline;
+}
+form-renderer actionable-icon:hover:active .icon-hover {
+    display: none;
+}
+form-renderer actionable-icon:active .icon-active {
+    display: inline;
+}
+form-renderer actionable-icon:hover .icon,
+form-renderer actionable-icon:active .icon{
+    display: none;
+}
+form-renderer .definition-img,
+form-renderer .definition-img-hover,
+form-renderer .definition-img-active {
+ width: 22px;
+ height: 22px;
+ vertical-align: middle;
+}
+form-renderer .repeatable-section{
+    padding: 10px;
+}
+form-renderer .repeatable-section.oj-selected {
+    background-color: #e4f0fa;
+}
+
+form-renderer .oj-choice-row.oj-choice-row-inline {
+    padding-left: 10px;
+    padding-right: 0;
+}
+form-renderer .hideTableLabels .oj-label,
+form-renderer .hideTableLabels .oj-label-group {
+    display: none !important;
+}
+
+form-renderer .table-container {
+    display: inline-block;
+    overflow-x: auto;
+}
+
+form-renderer .table-control .oj-table-column-header-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+form-renderer .canvas .oj-label.oj-component.oj-checkboxset-label {
+    margin-bottom: 0;
+}
+
+form-renderer .oj-checkbox {
+    width: 10px !important;
+    height: 10px !important;
+    clip: auto !important;
+}
+
+/* LOADER */
+
+form-renderer .spinnerContainer {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 99999;
+}
+
+form-renderer .spinner {
+    padding-top: 50px;
+    text-align: center;
+}
+
+form-renderer .spinner__bounce {
+    width: 18px;
+    height: 18px;
+    background-color: #82b4eb;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+form-renderer .spinner-object-1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+form-renderer .spinner-object-2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0)
+    }
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+form-renderer .anchorLink{
+    display: block;
+}
+
+form-renderer .isContentInvalid {
+    color: #DE6666;
+}
+
+form-renderer .isContentInvalid h1,
+form-renderer .isContentInvalid h2,
+form-renderer .isContentInvalid h3,
+form-renderer .isContentInvalid h4,
+form-renderer .isContentInvalid h5,
+form-renderer .isContentInvalid h6,
+form-renderer .isContentInvalid p,
+form-renderer span.isContentInvalid{
+  color: #DE6666;
+  background: url('../img/validationError.svg') no-repeat 5px;
+  padding-left: 25px;
+}
+
+form-renderer .loading__placeholder {
+  background: #efeff1;
+  opacity: 0.5;
+  min-height: 30px;
+  margin: 10px;
+  border-radius: 2px;
+}
+
+form-renderer .oj-collapsible-header a,
+form-renderer .oj-collapsible-header .oj-collapsible-header-icon {
+  display: flex;
+  align-items: center;
+}
+
+form-renderer .oj-collapsible-header p {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+form-renderer .oj-collapsible-content {
+  padding: 0;
+}
+
+form-renderer .canvas__footer,
+form-renderer .canvas__header {
+  display: none;
+}

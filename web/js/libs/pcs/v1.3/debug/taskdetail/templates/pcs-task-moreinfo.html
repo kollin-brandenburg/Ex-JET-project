@@ -1,0 +1,117 @@
+<script type="text/html" id="pcs-td-moreInfo-template">
+    <div id="pcs-td-moreInfo-cont" class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline oj-form-cols-labels-inline oj-form-cols-max2">
+            <div class="oj-flex" id="pcs-td-moreInfo-pr-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-pr" data-bind="text:bundle.pcs.taskdetail.priority"></label>
+                </div>
+                <div class="oj-flex-item">
+                    <select id="pcs-td-moreInfo-pr"
+                            data-bind="ojComponent: {component: 'ojSelect',options: priorityOptions, disabled :readOnly,
+                                            value:taskObject.priority }">
+                    </select>
+                </div>
+            </div>
+            <div class="oj-flex" id="pcs-td-moreInfo-cb-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-cb"  data-bind="text:bundle.pcs.taskdetail.createdBy"></label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="pcs-td-moreInfo-cb"
+                           data-bind="ojComponent: {component: 'ojInputText',
+                                            value:taskObject.creator, readOnly: true, rootAttributes: {style:'max-width:100%'} }">
+                </div>
+            </div>
+            <div class="oj-flex" id="pcs-td-moreInfo-co-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-co" data-bind="text:bundle.pcs.taskdetail.createdOn"></label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="pcs-td-moreInfo-co"
+                           data-bind="ojComponent: {component: 'ojInputText',
+                                            value:taskObject.createdDate, readOnly: true, rootAttributes: {style:'max-width:100%'} }">
+                </div>
+            </div>
+            <div class="oj-flex" id="pcs-td-moreInfo-do-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-do" data-bind="text:bundle.pcs.taskdetail.dueOn"></label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="pcs-td-moreInfo-do"
+                           data-bind="ojComponent: {component: 'ojInputText',
+                                            value:taskObject.dueDate, readOnly: true, rootAttributes: {style:'max-width:100%'} }">
+                </div>
+            </div>
+            <div class="oj-flex" id="pcs-td-moreInfo-uo-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-uo" data-bind="text:bundle.pcs.taskdetail.updatedOn"></label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="pcs-td-moreInfo-uo"
+                           data-bind="ojComponent: {component: 'ojInputText',
+                                            value:taskObject.updatedDate, readOnly: true, rootAttributes: {style:'max-width:100%'} }">
+                </div>
+            </div>
+            <!--<div class="oj-flex" id="pcs-td-moreInfo-ao-c">-->
+            <!--<div class="oj-flex-item">-->
+            <!--<label for="pcs-td-moreInfo-ao">Assigned On</label>-->
+            <!--</div>-->
+            <!--<div class="oj-flex-item">-->
+            <!--<input id="pcs-td-moreInfo-ao"-->
+            <!--data-bind="ojComponent: {component: 'ojInputText',-->
+            <!--value:taskObject.assignedDate, readOnly: true, rootAttributes: {style:'max-width:100%'} }">-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="oj-flex" id="pcs-td-moreInfo-fu-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-fu" data-bind="text:bundle.pcs.taskdetail.fromUser"> </label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="pcs-td-moreInfo-fu"
+                           data-bind="ojComponent: {component: 'ojInputText',
+                                            value:taskObject.fromUser, readOnly: true, rootAttributes: {style:'max-width:100%'} }">
+                </div>
+            </div>
+            <div class="oj-flex" id="pcs-td-moreInfo-on-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-on"  data-bind="text:bundle.pcs.taskdetail.owner"></label>
+                </div>
+                <div class="oj-flex-item">
+                    <input  id="pcs-td-moreInfo-on"
+                            data-bind="ojComponent: {component: 'ojInputText',
+                                            value:taskObject.owner, readOnly: true, rootAttributes: {style:'max-width:100%'} }">
+                </div>
+            </div>
+            <div class="oj-flex" id="pcs-td-moreInfo-pn-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-pn"  data-bind="text:bundle.pcs.taskdetail.processName"></label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="pcs-td-moreInfo-pn"
+                           data-bind="ojComponent: {component: 'ojInputText',
+                                            value:taskObject.processName, readOnly: true, rootAttributes: {style:'max-width:100%'} }">
+                </div>
+            </div>
+            <div class="oj-flex" id="pcs-td-moreInfo-oc-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-oc"  data-bind="text:bundle.pcs.taskdetail.outcome"></label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="pcs-td-moreInfo-oc"
+                           data-bind="ojComponent: {component: 'ojInputText',
+                                            value:taskObject.outcome, readOnly: true, rootAttributes: {style:'max-width:100%'} }">
+                </div>
+            </div>
+            <div class="oj-flex" id="pcs-td-moreInfo-nb-c">
+                <div class="oj-flex-item">
+                    <label for="pcs-td-moreInfo-nb" data-bind="text:bundle.pcs.taskdetail.number"></label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="pcs-td-moreInfo-nb"
+                           data-bind="ojComponent: {component: 'ojInputText',
+                                            value:taskObject.number, readOnly: true, rootAttributes: {style:'max-width:100%'} }">
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

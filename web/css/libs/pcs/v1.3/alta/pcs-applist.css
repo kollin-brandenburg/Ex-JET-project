@@ -1,0 +1,42 @@
+@import url("pcs-common.css");
+@import url("pcs-startform.css");
+
+.pcs-applist-process-holder-smaller {
+    border-radius: 64px;
+    box-shadow: 0 0 0 4px #e2e2e2;
+    color: #FFFFFF !important;
+    font-size: 30px !important;
+    /*background: #6e8598;*/
+    height: 64px;
+    width: 64px;
+    line-height: 64px;
+    text-align: center;
+    display: inline-block;
+    /*border: 2px solid #fff;*/
+    /*transition: border-color .2s ease, box-shadow .2s ease;*/
+}
+
+.pcs-applist-process-holder-smaller:hover {
+    text-decoration: none !important;
+    box-shadow: 0 0 0 3px #c6c6c6;
+    opacity: 0.80;
+}
+
+.pcs-applist-start-process-text {
+    font-size: 30px;
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.pcs-applist-process-process-name{
+	margin-top:10px;
+	color: #737373;
+	word-break: break-all;
+}
+
+
+.pcs-applist-form-box{
+	margin-top:20px;
+	margin-bottom:20px;
+	/*margin-left:10px*/
+}

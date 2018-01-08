@@ -1,0 +1,7 @@
+<!-- parent VM which consumes this should have USer Defined idbConfig object with configuration details -->
+
+<select  data-bind="attr: {id: idbID, placeholder : placeholder}, ojComponent: { component: 'ojIdentity', value: value,
+		options: $.proxy(getIdentities, $data),
+		multiple: multiple, selectAll: true,
+		defaultScope: scope}">
+</select>

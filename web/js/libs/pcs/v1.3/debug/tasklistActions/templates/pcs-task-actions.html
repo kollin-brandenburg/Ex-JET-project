@@ -1,0 +1,56 @@
+<div id="pcs-taskactions-container">
+	<!-- ko foreach: taskActionList -->
+	<!-- ko if: actionType == 'Custom' -->
+	<button class="pcs-act-custom" data-bind="visible: !$parent.hideCustomActions, attr:{id:title}, click:$parent.onCustomActionClick,
+									ojComponent: {
+									component:'ojButton',
+									label: label,
+									rootAttributes: {style: 'font-size: 12px;'}
+									}"></button>
+	<!-- /ko -->
+	<!-- /ko -->
+	<button data-bind="visible: !hideSystemActions && isTaskSelected ,ojComponent: {
+									component:'ojButton',
+									label: bundle.pcs.tasklist.systemActions,
+									menu: '#systemMenu',
+									rootAttributes: {style: 'font-size: 12px;'}
+								}">
+	</button>
+	<ul class="pcs-tl-hidden" id="systemMenu"
+		data-bind="ojComponent: {component: 'ojMenu', select: onSystemActionSelect}">
+		<!-- ko foreach: taskActionList -->
+		<!-- ko if: actionType == 'System' -->
+		<li class="oj-menu-item">
+			<a href="#" class="pcs-tl-action-menu-item" data-bind="text:label, value:title"></a>
+		</li>
+		<!-- /ko -->
+		<!-- /ko -->
+	</ul>
+	<div class="oj-flex"
+		 data-bind='component: {name: "requestInfo", params: { isVisible: displayInfoRequest, showInline: false, tasks: selectedTasklist }}'>
+	</div>
+	<div class="oj-flex"
+		 data-bind='component: {name: "reassign", params: { isVisible: displayReassign, showInline: false, tasks: selectedTasklist }}'>
+	</div>
+	<div id="pcs-taskActions-confirmation-dialog"
+		 data-bind="ojComponent:{component: 'ojDialog', title: bundle.pcs.taskActions.confirmation + displayActionName(), close: handleClose,
+		 	rootAttributes: { style: 'width: 500px; min-width: 100px; max-width 500px;'}}">
+		<div class="oj-dialog-body" id="pcs-taskActions-confirmation-dialog-content">
+			<div data-bind="text: getSelectedItems()">
+			</div>
+			<br/>
+			<div class="oj-flex-item">
+				<label for="comments" data-bind="text:bundle.pcs.taskActions.comments"></label>
+							<textarea id="comments" style="resize: both" data-bind="ojComponent:
+                   {component: 'ojTextArea', rootAttributes: {style:'min-width:100%'}, value:actionComments, required: false}">
+							</textarea>
+			</div>
+		</div>
+		<div class="oj-dialog-footer" id="pcs-taskActions-confirmation-dialog-footer">
+			<button id="okButton"
+					data-bind="ojComponent: {component: 'ojButton', label: bundle.pcs.taskActions.ok}, click: handleSubmit"></button>
+			<button id="cancelButton"
+					data-bind="ojComponent: {component: 'ojButton', label: bundle.pcs.taskActions.cancel}, click: handleClose"></button>
+		</div>
+	</div>
+</div>

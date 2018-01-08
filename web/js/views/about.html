@@ -1,0 +1,22 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>About Content Area</h1>
+  <div>
+      To change the content of this section, you will make edits to the about.html file located in the /js/views folder.
+  </div>
+  <input data-bind="value: name"></input>
+  <input data-bind="textInput: name"></input>
+
+  <h2><span data-bind="text: name"></span></h2>
+  <div data-bind="ojComponent: {component: 'ojChart', type: 'bar', series: datasource}"></div>
+  <div data-bind="ojComponent: {component: 'ojChart', type: 'pie', series: datasource}"></div>
+
+  <oj-chart type:"pie" series="[[datasource]]"></oj-chart>
+  <oj-chart type:"bar" series="[[datasource]]"></oj-chart>
+  <oj-chart type:"bar" series="[[transportation]]"></oj-chart>
+
+
+</div>
