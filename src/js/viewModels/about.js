@@ -5,7 +5,7 @@
 /*
  * Your about ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'ojs/ojChart'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'ojs/ojChart', 'ojs/ojtable', 'ojs/ojarraytabledatasource'],
  function(oj, ko, $, file) {
 
     function AboutViewModel() {
@@ -22,6 +22,27 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'oj
       self.name = ko.observable("Kollin")
       self.datasource = ko.observableArray(data)
       self.transportation = ko.observableArray(filedata)
+
+      self.data2 = ko.observableArray();
+      var test = $.getJSON("https://restcountries.eu/rest/v2/all")
+      console.log('Countries: ', test)
+
+      $.getJSON("https://restcountries.eu/rest/v2/all").
+          then(function (countries){
+            var tempArray = [];
+            $.each(countries, function () {
+              tempArray.push({
+                name: this.name,
+                population: this.population,
+                capital: this.capital
+              });
+            });
+            self.data2(tempArray)
+          });
+      self.datasource2 = new oj.ArrayTableDataSource(
+        self.data2, {idAttribute: 'name'}
+      )
+
 
 
       // Below are a subset of the ViewModel methods invoked by the ojModule binding

@@ -17,6 +17,16 @@
   <oj-chart type:"pie" series="[[datasource]]"></oj-chart>
   <oj-chart type:"bar" series="[[datasource]]"></oj-chart>
   <oj-chart type:"bar" series="[[transportation]]"></oj-chart>
+  <oj-table id='table' aria-label='Country Table'
+                                        data='[[datasource2]]'
+                                        columns-default.sortable='disabled'
+                                        columns='[{"headerText": "Name",
+                                                   "field": "name"},
+                                                  {"headerText": "Population",
+                                                   "field": "population"},
+                                                  {"headerText": "Capital",
+                                                   "field": "capital"}]'>
+        </oj-table>
 
 
 </div>

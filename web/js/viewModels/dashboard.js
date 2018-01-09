@@ -8,15 +8,16 @@
 
 
 
-define(['ojs/ojcore', 'knockout', 'jquery', 'pcs/pcs.comments'],
+define(['ojs/ojcore', 'knockout', 'jquery'],
  function(oj, ko, $) {
 
 
     function DashboardViewModel() {
       var self = this;
-      $("#comments").comments({
-            comments: []
-		        });
+      // $("#tasklist").tasklist({
+      //       hideSearch: true,
+      //       hideCustomActions: true
+      //   });
 
       // Below are a subset of the ViewModel methods invoked by the ojModule binding
       // Please reference the ojModule jsDoc for additional available methods.

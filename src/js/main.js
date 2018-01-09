@@ -28,7 +28,7 @@ requirejs.config({
     'ojtranslations': 'libs/oj/v4.1.0/resources',
     'text': 'libs/require/text',
     'pcsMsg' : 'libs/pcs/resources',
-    'pcs' : 'libs/pcs/min',
+    'pcs' : 'https://pcs-gse00000305.process.us2.oraclecloud.com/bpm/components/js/libs/pcs/v1.2/min',
     'rendererMsg': 'libs/pcs/rendererMsg',
     'signals': 'libs/js-signals/signals',
     'customElements': 'libs/webcomponents/custom-elements.min',
@@ -75,7 +75,6 @@ require([
   'ojs/ojtoolbar',
   'ojs/ojcheckboxset',
   'ojs/ojlabel',
-  'pcs/pcs.apList'
 ], function(oj, ko, app, $) { // this callback gets executed when all required modules are loaded
   // oj.ModuleBinding.defaults.modelPath = './';
   // oj.ModuleBinding.defaults.viewPath = 'text!./';
@@ -86,24 +85,7 @@ require([
    authInfo : 'Bearer eyJhbGciOiJSGciObGciOiJSGcbGciOiJSGciGciOi'
   };
 
-  var appList = $('#applist');
-  self.plugin = appList.applist({
-             hideStartform : self.hideStartform(),
-             startformDialog : self.startformDialog()
-         });
 
-   // Defining the event listeners --
-  appList.on('applist:formSelected', function(event, data){
-
-  });
-
- appList.on('applist:formSubmited', function(event, data,instance){
-
- });
-
- appList.on('applist:formSaved', function(event, data ,instance){
-
- });
 
 
   $(function() {
