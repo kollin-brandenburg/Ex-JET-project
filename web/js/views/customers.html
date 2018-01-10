@@ -4,7 +4,23 @@
  -->
 <div class="oj-hybrid-padding">
   <h1>Customers Content Area</h1>
-  <div>
-      To change the content of this section, you will make edits to the customers.html file located in the /js/views folder.
-  </div>
+
+  <oj-label for="text-input">Search AEF</oj-label>
+  <input data-bind="textInput: searchfield"></input>
+  <oj-button id='button1' on-click='[[buttonClick]]'>Search</oj-button>
+  <br>
+  <oj-table id='table' aria-label='Search Table'
+                                        data='[[datasource2]]'
+                                        columns-default.sortable='disabled'
+                                        columns='[{"headerText": "AEF Number",
+                                                   "field": "aef_number"},
+                                                  {"headerText": "AEF Name",
+                                                   "field": "aef_name"},
+                                                  {"headerText": "Business Unit",
+                                                    "field": "business_unit"},
+                                                  {"headerText": "Submission Date",
+                                                    "field": "submission_date"},
+                                                  {"headerText": "Status",
+                                                   "field": "status"}]'>
+  </oj-table>
 </div>

@@ -5,8 +5,8 @@
 /*
  * Your about ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'ojs/ojChart', 'ojs/ojtable', 'ojs/ojarraytabledatasource'],
- function(oj, ko, $, file) {
+define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'factories/CountryFactory', 'ojs/ojChart', 'ojs/ojtable', 'ojs/ojarraytabledatasource', 'ojs/ojcollectiontabledatasource', 'ojs/ojbutton'],
+ function(oj, ko, $, file, CountryFactory) {
 
     function AboutViewModel() {
       var self = this;
@@ -23,12 +23,29 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'oj
       self.datasource = ko.observableArray(data)
       self.transportation = ko.observableArray(filedata)
 
+      // var countryCall = function(){
+      //   countryCollection: CountryFactory.createCountryCollection(),
+      //   datasource3: ko.observable(),
+      //   initialize: function (){
+      //     this.datasource3(new oj.CollectionTableDataSource(this.countryCollection));
+      //     this.countryCollection.fetch();
+      //   }
+      // }
+
+
+
+
       self.data2 = ko.observableArray();
-      var test = $.getJSON("https://restcountries.eu/rest/v2/all")
+      var test = $.ajax({
+        url: 'https://restcountries.eu/rest/v2/all'
+      })
       console.log('Countries: ', test)
 
-      $.getJSON("https://restcountries.eu/rest/v2/all").
+      $.ajax({
+        url: 'https://restcountries.eu/rest/v2/all'
+      }).
           then(function (countries){
+            console.log("test", countries)
             var tempArray = [];
             $.each(countries, function () {
               tempArray.push({
@@ -39,6 +56,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'text!data/transportation.json', 'oj
             });
             self.data2(tempArray)
           });
+
+
+
       self.datasource2 = new oj.ArrayTableDataSource(
         self.data2, {idAttribute: 'name'}
       )

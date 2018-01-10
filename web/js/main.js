@@ -15,7 +15,8 @@ requirejs.config({
   // Path mappings for the logical module names
   // Update the main-release-paths.json for release mode when updating the mappings
   paths:
-  //injector:mainReleasePaths
+//injector:mainReleasePaths
+
   {
     'knockout': 'libs/knockout/knockout-3.4.0.debug',
     'jquery': 'libs/jquery/jquery-3.1.1',
@@ -28,7 +29,7 @@ requirejs.config({
     'ojtranslations': 'libs/oj/v4.1.0/resources',
     'text': 'libs/require/text',
     'pcsMsg' : 'libs/pcs/resources',
-    'pcs' : 'libs/pcs/min',
+    'pcs' : 'https://pcs-gse00000305.process.us2.oraclecloud.com/bpm/components/js/libs/pcs/v1.2/min',
     'rendererMsg': 'libs/pcs/rendererMsg',
     'signals': 'libs/js-signals/signals',
     'customElements': 'libs/webcomponents/custom-elements.min',
@@ -37,7 +38,8 @@ requirejs.config({
   },
 
 
-  //endinjector
+  
+//endinjector
 
   // Shim configurations for modules that do not expose AMD
   shim: {
@@ -85,7 +87,7 @@ require([
    authInfo : 'Bearer eyJhbGciOiJSGciObGciOiJSGcbGciOiJSGciGciOi'
   };
 
-  
+
 
 
   $(function() {

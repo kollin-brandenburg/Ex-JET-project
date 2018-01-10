@@ -5,12 +5,81 @@
 /*
  * Your customer ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery'],
+define([
+  'ojs/ojcore',
+  'knockout',
+  'jquery',
+  'ojs/ojChart',
+  'ojs/ojtable',
+  'ojs/ojarraytabledatasource',
+  'ojs/ojknockout',
+  'ojs/ojinputtext',
+  'ojs/ojlabel',
+  'ojs/ojbutton'],
  function(oj, ko, $) {
 
     function CustomerViewModel() {
       var self = this;
-      
+
+      var dataAPI_URL = 'http://140.86.34.224/ords/pdb1/exelon/aef/RequestAEF';
+      self.searchfield = ko.observable("5003");
+      // self.dataSource4 = ko.observable();
+      //
+      // self.fetchDepartments = function(){
+      //   new self.DeptCollection().fetch()
+      // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      self.data2 = ko.observableArray();
+      self.datasource2 = new oj.ArrayTableDataSource(
+        self.data2, {idAttribute: 'submission_date'}
+      )
+
+      self.buttonClick = function(event){
+        console.log('Countries: ', event)
+
+        $.ajax({
+          url: 'http://140.86.34.224/ords/pdb1/exelon/aef/RequestAEF',
+          headers: {
+            'AEF_number': '5003'
+          },
+          type: 'GET',
+          dataType: 'json',
+          success: function(req) { console.log('hello!', req.items["0"]); },
+          error: function(req, err) { console.log('boo!', err); }
+        }).then(function (projects){
+              console.log("projects ", projects.items)
+              var tempArray = [];
+              $.each(projects.items, function () {
+                tempArray.push({
+                  aef_number: this.aef_number,
+                  aef_name: this.aef_name,
+                  business_unit: this.business_unit,
+                  submission_date: this.submission_date,
+                  status: this.status
+                });
+              });
+              self.data2(tempArray)
+            });
+
+      }
+
+
+
       // Below are a subset of the ViewModel methods invoked by the ojModule binding
       // Please reference the ojModule jsDoc for additional available methods.
 
