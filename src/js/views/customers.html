@@ -6,7 +6,12 @@
   <h1>Customers Content Area</h1>
 
   <oj-label for="text-input">Search AEF</oj-label>
-  <input data-bind="textInput: searchfield"></input>
+  <oj-input-text id="searchfield"
+        autocomplete="off"
+        required name="username"
+        value="{{searchfield}}"
+        data-bind="textInput: searchfield">
+  </oj-input-text>
   <oj-button id='button1' on-click='[[buttonClick]]'>Search</oj-button>
   <br>
   <oj-table id='table' aria-label='Search Table'

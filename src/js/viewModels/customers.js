@@ -21,27 +21,7 @@ define([
     function CustomerViewModel() {
       var self = this;
 
-      var dataAPI_URL = 'http://140.86.34.224/ords/pdb1/exelon/aef/RequestAEF';
-      self.searchfield = ko.observable("5003");
-      // self.dataSource4 = ko.observable();
-      //
-      // self.fetchDepartments = function(){
-      //   new self.DeptCollection().fetch()
-      // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      self.searchfield = ko.observable('');
 
 
       self.data2 = ko.observableArray();
@@ -50,12 +30,11 @@ define([
       )
 
       self.buttonClick = function(event){
-        console.log('Countries: ', event)
-
+        var searchdata = $('#searchfield').val()
         $.ajax({
           url: 'http://140.86.34.224/ords/pdb1/exelon/aef/RequestAEF',
           headers: {
-            'AEF_number': '5003'
+            'AEF_number': searchdata
           },
           type: 'GET',
           dataType: 'json',
