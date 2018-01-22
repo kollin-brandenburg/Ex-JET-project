@@ -73,7 +73,7 @@ define(['ojs/ojcore',
               console.log("search Array", searchArray)
               self.selectionData(searchArray)
             })
-
+            // Create the table if a Day is selected
           } else if (selection == "Sunday" || selection == "Monday" || selection =="Tuesday" || selection == "Wednesday" || selection == "Thursday" || selection == "Friday" || selection == "Saturday"){
             console.log("Nope")
             var searchArray = [];
@@ -133,14 +133,11 @@ define(['ojs/ojcore',
                 } else {
                   console.log("not selected", selection)
                 }
-
               })
               console.log("search Array", searchArray)
               self.selectionData(searchArray)
             })
-
           }
-
           return items;
         });
 
@@ -157,9 +154,6 @@ define(['ojs/ojcore',
                          {name: "Initial Review Meeting", items:[{value: 0, id: 'series s1'}]},
                          {name: "Initial Phase Approved", items:[{value: 0, id: 'series s1'}]}];
         $.each(stati, function (i) {
-          // console.log("this line: ", this.status, statusArray.valueOf(), i, statusArray[0])
-          // console.log("1", statusArray[0].name)
-          // console.log("2", statusArray["0"])
 
           let obj = statusArray.find((o, i) => {
             if (o.name === this.status) {
@@ -173,7 +167,6 @@ define(['ojs/ojcore',
             }
           });
         });
-        // console.log("statusArray", statusArray);
         self.statusPieces(statusArray);
       });
 
