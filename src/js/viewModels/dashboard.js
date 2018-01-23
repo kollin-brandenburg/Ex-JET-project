@@ -135,17 +135,11 @@ define(['ojs/ojcore',
                          {name: "Initiate Phase Approved", items:[{value: 0, id: 'series s1'}]}];
         var statusEach = stati.items
         $.each(statusEach, function (i) {
-          // console.log("status", statusEach)
           let obj = statusArray.find((o, i) => {
-            // console.log("o", o, "i", i, "oname", o.name, "this.status", this.status)
             if (o.name == this.status) {
-              // console.log("Woooooo", this.status, i)
               var thecurrentValue = statusArray[i].items[0].value
-              // console.log("the current value", thecurrentValue.value, this.status)
               var newValue = thecurrentValue + 1
-              // console.log("the new Value: ", newValue)
               statusArray[i] = { name: this.status , items:[{value: newValue, id: this.status}]};
-              // console.log("the current value", newValue)
               return true; // stop searching
             }
           });
@@ -170,19 +164,12 @@ define(['ojs/ojcore',
 
         var datesEach = CreatedDates.items
         $.each(datesEach, function (i) {
-          // console.log("dateseach", datesEach)
           var dateSplit = this.submission_date.split(/[.,\T/ -]/)
           // console.log("datesplit", dateSplit[0], dateSplit[1], dateSplit[2], "SPLIT ", dateSplit[3])
-  
           var date = new Date(dateSplit[2],dateSplit[1], dateSplit[0])
           var weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday",
                     "Thursday", "Friday", "Saturday");
-
           var dayOfWeek = weekday[date.getDay()]
-
-          // console.log("Day of the week: ", dayOfWeek, this.dateCreated)
-
-
           let obj = datesArray.find((o, i) => {
             if (o.name === dayOfWeek) {
               var thecurrentValue = datesArray[i].items[0].value
