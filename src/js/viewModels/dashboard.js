@@ -46,24 +46,27 @@ define(['ojs/ojcore',
             }
           }
 
-          if (selection == "Draft" || selection == "Submitted" || selection =="Resources Assigned" || selection == "Initial Review Meeting" || selection == "Initial Phase Approved"){
+          if (selection == "Draft" || selection == "Submitted" || selection =="Resources Assigned" || selection == "Initial Review Meeting Completed" || selection == "Initiate Phase Approved"){
             var searchArray = [];
             $.ajax({
-              url: 'https://private-2124d-aefscreated.apiary-mock.com/questions',
+              // url: 'https://private-2124d-aefscreated.apiary-mock.com/questions',
+              url: 'http://140.86.34.224/ords/pdb1/exelon/aef/RequestAEF',
               type: 'GET',
               dataType: 'json',
               success: function(req) { console.log('Status Request!', req); },
               error: function(req, err) { console.log('boo!', err); }
             }).then(function (AEFS){
-              console.log("AEFS", AEFS)
-              $.each(AEFS, function (i){
+              var AEFSItems = AEFS.items
+              console.log("AEFS", AEFSItems)
+              $.each(AEFSItems, function (i){
                 // console.log(this.status, i)
                 if (this.status == selection){
                   console.log("selected", selection)
+                  submissionDate = this.submission_date.split(/[T]/)
                   searchArray.push({
-                    aef_number: this.aefNumber,
-                    business_unit: this.businessUnit,
-                    submission_date: this.dateCreated,
+                    aef_number: this.aef_number,
+                    business_unit: this.business_unit,
+                    submission_date: submissionDate[0],
                     status: this.status
                   });
                 } else {
@@ -78,45 +81,20 @@ define(['ojs/ojcore',
             console.log("Nope")
             var searchArray = [];
             $.ajax({
-              url: 'https://private-2124d-aefscreated.apiary-mock.com/questions',
+              // url: 'https://private-2124d-aefscreated.apiary-mock.com/questions',
+              url: 'http://140.86.34.224/ords/pdb1/exelon/aef/RequestAEF',
               type: 'GET',
               dataType: 'json',
               success: function(req) { console.log('Status Request!', req); },
               error: function(req, err) { console.log('boo!', err); }
             }).then(function (AEFS){
-              console.log("AEFS", AEFS)
-              $.each(AEFS, function (i){
-                var dateSplit = this.dateCreated.split(/[.,\/ -]/)
+              console.log("AEFS", AEFS.items)
+              var AEFSdates = AEFS.items
 
-                if (dateSplit[1] == "Jan") {
-                  dateMonth = 1;
-                } else if(dateSplit[1] == "Feb"){
-                  dateMonth = 2;
-                } else if(dateSplit[1] == "Mar"){
-                  dateMonth = 3;
-                } else if(dateSplit[1] == "Apr"){
-                  dateMonth = 4;
-                } else if(dateSplit[1] == "May"){
-                  dateMonth = 5;
-                } else if(dateSplit[1] == "Jun"){
-                  dateMonth = 6;
-                } else if(dateSplit[1] == "Jul"){
-                  dateMonth = 7;
-                } else if(dateSplit[1] == "Aug"){
-                  dateMonth = 8;
-                } else if(dateSplit[1] == "Sep"){
-                  dateMonth = 9;
-                } else if(dateSplit[1] == "Oct"){
-                  dateMonth = 10;
-                } else if(dateSplit[1] == "Nov"){
-                  dateMonth = 11;
-                } else if(dateSplit[1] == "Dec"){
-                  dateMonth = 12;
-                } else {
-                  dateMonth = "None";
-                }
+              $.each(AEFSdates, function (i){
+                var dateSplit = this.submission_date.split(/[.,\T/ -]/)
 
-                var date = new Date(dateSplit[2],dateMonth-1, dateSplit[0])
+                var date = new Date(dateSplit[2], dateSplit[1], dateSplit[0])
                 var weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday",
                           "Thursday", "Friday", "Saturday");
 
@@ -124,10 +102,11 @@ define(['ojs/ojcore',
                 console.log("day of week", dayOfWeek)
                 if (dayOfWeek == selection){
                   console.log("selected", selection)
+                  submissionDate = this.submission_date.split(/[T]/)
                   searchArray.push({
-                    aef_number: this.aefNumber,
-                    business_unit: this.businessUnit,
-                    submission_date: this.dateCreated,
+                    aef_number: this.aef_number,
+                    business_unit: this.business_unit,
+                    submission_date: submissionDate[0],
                     status: this.status
                   });
                 } else {
@@ -143,7 +122,8 @@ define(['ojs/ojcore',
 
 
       $.ajax({
-        url: 'https://private-2124d-aefscreated.apiary-mock.com/questions',
+        // url: 'https://private-2124d-aefscreated.apiary-mock.com/questions',
+        url: 'http://140.86.34.224/ords/pdb1/exelon/aef/RequestAEF',
         type: 'GET',
         dataType: 'json'
       }).then(function (stati){
@@ -151,12 +131,15 @@ define(['ojs/ojcore',
         var statusArray = [{name: "Draft", items: [{value: 0, id: 'series s1'}]},
                          {name: "Submitted", items: [{value: 0, id: 'series s1'}]},
                          {name: "Resources Assigned", items:[{value: 0, id: 'series s1'}]},
-                         {name: "Initial Review Meeting", items:[{value: 0, id: 'series s1'}]},
-                         {name: "Initial Phase Approved", items:[{value: 0, id: 'series s1'}]}];
-        $.each(stati, function (i) {
-
+                         {name: "Initial Review Meeting Completed", items:[{value: 0, id: 'series s1'}]},
+                         {name: "Initiate Phase Approved", items:[{value: 0, id: 'series s1'}]}];
+        var statusEach = stati.items
+        $.each(statusEach, function (i) {
+          // console.log("status", statusEach)
           let obj = statusArray.find((o, i) => {
-            if (o.name === this.status) {
+            // console.log("o", o, "i", i, "oname", o.name, "this.status", this.status)
+            if (o.name == this.status) {
+              // console.log("Woooooo", this.status, i)
               var thecurrentValue = statusArray[i].items[0].value
               // console.log("the current value", thecurrentValue.value, this.status)
               var newValue = thecurrentValue + 1
@@ -171,11 +154,12 @@ define(['ojs/ojcore',
       });
 
       $.ajax({
-        url: 'https://private-2124d-aefscreated.apiary-mock.com/questions',
+        // url: 'https://private-2124d-aefscreated.apiary-mock.com/questions',
+        url: 'http://140.86.34.224/ords/pdb1/exelon/aef/RequestAEF',
         type: 'GET',
         dataType: 'json'
       }).then(function (CreatedDates){
-        // console.log("Dates: ", CreatedDates)
+        // console.log("Dates: ", CreatedDates.items)
         var datesArray = [{name: "Sunday", items: [{value: 0, id: "Sunday"}]},
                            {name: "Monday", items: [{value: 0, id: "Monday"}]},
                            {name: "Tuesday", items: [{value: 0, id: "Tuesday"}]},
@@ -183,40 +167,14 @@ define(['ojs/ojcore',
                            {name: "Thursday", items: [{value: 0, id: "Thursday"}]},
                            {name: "Friday", items: [{value: 0, id: "Friday"}]},
                            {name: "Saturday", items: [{value: 0, id: "Saturday"}]}];
-        $.each(CreatedDates, function (i) {
-          // console.log("this line: ", this.dateCreated, datesArray.valueOf(), i, datesArray[0])
-          var dateSplit = this.dateCreated.split(/[.,\/ -]/)
-          // console.log('Date split', dateSplit, dateSplit[0], dateSplit[1])
 
-          if (dateSplit[1] == "Jan") {
-            dateMonth = 1;
-          } else if(dateSplit[1] == "Feb"){
-            dateMonth = 2;
-          } else if(dateSplit[1] == "Mar"){
-            dateMonth = 3;
-          } else if(dateSplit[1] == "Apr"){
-            dateMonth = 4;
-          } else if(dateSplit[1] == "May"){
-            dateMonth = 5;
-          } else if(dateSplit[1] == "Jun"){
-            dateMonth = 6;
-          } else if(dateSplit[1] == "Jul"){
-            dateMonth = 7;
-          } else if(dateSplit[1] == "Aug"){
-            dateMonth = 8;
-          } else if(dateSplit[1] == "Sep"){
-            dateMonth = 9;
-          } else if(dateSplit[1] == "Oct"){
-            dateMonth = 10;
-          } else if(dateSplit[1] == "Nov"){
-            dateMonth = 11;
-          } else if(dateSplit[1] == "Dec"){
-            dateMonth = 12;
-          } else {
-            dateMonth = "None";
-          }
-
-          var date = new Date(dateSplit[2],dateMonth-1, dateSplit[0])
+        var datesEach = CreatedDates.items
+        $.each(datesEach, function (i) {
+          // console.log("dateseach", datesEach)
+          var dateSplit = this.submission_date.split(/[.,\T/ -]/)
+          // console.log("datesplit", dateSplit[0], dateSplit[1], dateSplit[2], "SPLIT ", dateSplit[3])
+  
+          var date = new Date(dateSplit[2],dateSplit[1], dateSplit[0])
           var weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday",
                     "Thursday", "Friday", "Saturday");
 
